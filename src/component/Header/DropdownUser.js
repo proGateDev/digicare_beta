@@ -20,10 +20,12 @@ const DropdownUser = ({ profile }) => {
 
   const userDropdownLinks = [
     {
+      id:1,
       label: "My Profile",
       link: "/user/profile"
     },
     {
+      id:1,
       label: " Account Settiing",
       link: "/user/settings"
     }
@@ -60,7 +62,7 @@ const DropdownUser = ({ profile }) => {
           <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
             {userDropdownLinks?.map(x => <li>
               <Link
-                key={x?.link}
+                key={x?.id}
                 href={x?.link}
                 className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
               >
