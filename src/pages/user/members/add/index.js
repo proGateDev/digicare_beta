@@ -4,7 +4,7 @@ import SelectGroupTwo from "../../../../component/SelectGroup/SelectGroupTwo";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import useAuth from "../../../../hooks/useAuth";
-import { addUserMembers } from "../../../../controllers/user/member";
+import { addUserMember } from "../../../../controllers/user/member";
 import { useRouter } from "next/router";
 
 const AddMember = () => {
@@ -28,7 +28,7 @@ const router = useRouter()
     };
 
     try {
-      const response = await addUserMembers([memberData]); // Call your API function
+      const response = await addUserMember([memberData]); // Call your API function
       Swal.fire({
         title: "Success",
         text: response?.message || "Member Added Successfully",
