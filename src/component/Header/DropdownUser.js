@@ -63,7 +63,9 @@ const DropdownUser = ({ profile }) => {
             {userDropdownLinks?.map(x => {
               console.log('userDropdownLinks ---------', x)
               return (
-                <li>
+                <li
+                  key={x?.id}
+                >
                   <Link
                     key={x?.id}
                     href={x?.link}
