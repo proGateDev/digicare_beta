@@ -167,7 +167,7 @@ const Login = () => {
                     <div className="toggle-auth">
                         {isLogin ? (
                             <p>
-                                Don't have an account?{' '}
+                                Do nott have an account?{' '}
                                 <button type="button" onClick={() => setIsLogin(false)}>
                                     Sign Up
                                 </button>
