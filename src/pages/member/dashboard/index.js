@@ -5,16 +5,17 @@ import MemberCard from "../../../component/MemberCard/memberCard";
 import Tabs from "../../../component/Tabs/tabs";
 import { useRouter } from "next/router";
 import { useMemberProfile } from "../../../controllers/member/profile";
-import MemberTrack from '../../../component/memberTracking'
+import MemberTrack  from '../../../component/memberTracking'
 
 
 const Dashboard = () => {
-  const { isPending, error, memberProfile } = (useMemberProfile);
+  const { isPending, error, memberProfile } = useMemberProfile()
+  console.log("=========== memberProfile", memberProfile?.user);
 
   return (
     <DefaultLayout
       isMember={true}
-      profile={memberProfile}
+      profile={memberProfile?.user}
     >
       {isPending ? (
         <p>Loading profile...</p>
@@ -23,7 +24,8 @@ const Dashboard = () => {
           {/* <GoogleMaps /> */}
           <Tabs />
           {/* <MemberCard /> */}
-          <MemberTrack/>
+          <MemberTrack />
+
         </>
       ) : (
         <p>No profile data available</p>

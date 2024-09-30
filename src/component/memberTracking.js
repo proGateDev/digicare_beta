@@ -1,7 +1,7 @@
 import { useState ,useEffect } from "react";
 import { useUpdateMemberLocation } from "../controllers/member/track";
 
-const GoogleGeolocationComponent = ({ memberId }) => {
+const MemberTrack = ({ memberId }) => {
   const [coordinates, setCoordinates] = useState({ latitude: null, longitude: null });
   const [error, setError] = useState(null);
   const updateLocationMutation = useUpdateMemberLocation();
@@ -50,4 +50,4 @@ const GoogleGeolocationComponent = ({ memberId }) => {
   );
 };
 
-export default GoogleGeolocationComponent;
+export default MemberTrack;
