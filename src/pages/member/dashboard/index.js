@@ -6,11 +6,17 @@ import Tabs from "../../../component/Tabs/tabs";
 import { useRouter } from "next/router";
 import { useMemberProfile } from "../../../controllers/member/profile";
 import MemberTrack  from '../../../component/memberTracking'
+import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
 
 
 const Dashboard = () => {
   const { isPending, error, memberProfile } = useMemberProfile()
-  console.log("=========== memberProfile", memberProfile?.user);
+
+
+useProtectedRoute('member')
+
+
+
 
   return (
     <DefaultLayout

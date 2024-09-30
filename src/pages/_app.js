@@ -1,9 +1,5 @@
-// import "../styles/globals.css";
 
-// export default function App({ Component, pageProps }) {
-//   return <Component {...pageProps} />;
-// }
-
+import { AuthProvider } from '../context/auth';
 
 import "../styles/globals.css";
 import {
@@ -13,12 +9,18 @@ import {
 } from '@tanstack/react-query'
 const queryClient = new QueryClient()
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, session }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+    <AuthProvider>
 
-    </QueryClientProvider>
+
+
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+
+      </QueryClientProvider>
+    </AuthProvider>
+
   )
 }
 

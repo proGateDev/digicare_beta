@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import DefaultLayout from "../../../../component/Layouts/DefaultLayout";
 
 import { useRouter } from "next/router";
@@ -11,8 +11,6 @@ const MemberList = () => {
   const { userMembers } = useUserMembers()
 
 
-
-  console.log('--=',userMembers);
 
 
 

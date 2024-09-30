@@ -1,56 +1,49 @@
 // pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import { apiEndpoints } from "../../../../contsants/endPoints";
+import CredentialsProvider from "next-auth/providers/credentials";
+import jwt from "jsonwebtoken"; // Optional, if you want to sign tokens yourself
 
-export const authOptions = {
+export default NextAuth({
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        name: { label: "name", type: "text" },
+        password: { label: "password", type: "password" },
+      },
+      async authorize(credentials) {
+        // Perform your own user authentication logic here
+        const user = await authenticateUser(credentials.name, credentials.password);
+        console.log('NextAuth ========',user);
+        
+        if (user) {
+          // If the user is authenticated, return user object (it will be encoded in JWT)
+          return { id: user.id, name: user.name, email: user.email };
+        }
+        // Return null if authentication fails
+        return null;
+      },
     }),
   ],
-  pages: {
-    signIn: '/auth/signin',
+  session: {
+    strategy: "jwt", // Use JWT instead of database sessions
   },
-  
+  jwt: {
+    // Optional: You can define how the JWT is signed or customized
+    secret: process.env.JWT_SECRET,
+    signingKey: process.env.JWT_SIGNING_PRIVATE_KEY, // Optional if you want to sign it yourself
+    encryption: true, // Optional: you can also enable encryption if needed
+  },
   callbacks: {
-    // This callback is called whenever a user signs in
-    async signIn({ user, account, profile }) {
-      // You can access user information here
-      const userData = {
-        name: user.name,
-        email: user.email,
-        image: user.image,
-        accessToken: account.access_token,
-        provider: account.provider,
-      };
-
-      console.log(userData);
-
-      // Make an API call to your backend to store this data
-      try {
-        const response = await fetch(apiEndpoints.userSignUp, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userData),  // Send user data to backend
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to store user in the backend");
-        }
-
-        console.log('User stored successfully');
-      } catch (error) {
-        console.error('Error saving user:', error);
-        return false; // Return false if you want to stop the login process in case of failure
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id; // Add custom fields to the token
       }
-
-      return true; // Continue the login process
+      return token;
+    },
+    async session({ session, token }) {
+      session.user.id = token.id; // Add token fields to the session object
+      return session;
     },
   },
-};
-
-export default NextAuth(authOptions);
+});

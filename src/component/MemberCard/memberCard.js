@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import Swal from 'sweetalert2';
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -12,8 +11,6 @@ export default function MemberCard({groupDisplay}) {
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1); // State for current page
     const membersPerPage = 5; // Display 5 members per page
-    const { tokenDecoded } = useAuth();
-    const token = tokenDecoded();
     const router = useRouter();
     const [openAccordion, setOpenAccordion] = useState(null);
 

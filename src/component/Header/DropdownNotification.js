@@ -3,15 +3,38 @@ import Link from "next/link";
 import ClickOutside from "../ClickOutside";
 import { io } from "socket.io-client"; // Importing socket.io client
 import { devURL } from '../../../contsants/endPoints';
-
+import { useAuth } from '../../context/auth'
 const DropdownNotification = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifying, setNotifying] = useState(false);
-  const [userId, setUserId] = useState('66f2533350a2238acfb19892');
+  const { decodedToken } = useAuth()
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
   const [notifications, setNotifications] = useState([]);
   let socket; // Declare socket here
+  // const userId = decodedToken()
+console.log('decodedJWT',decodedToken);
 
+
+  // console.log('notification =========', notification)
   const handleNotification = (notification) => {
+
+    console.log('notification =========', notification)
+
     const newNotification = {
       message: notification,
       date: new Date().toLocaleString(),
@@ -23,31 +46,35 @@ const DropdownNotification = () => {
 
   useEffect(() => {
     // Initialize the socket connection when the component mounts
-    socket = io("http://192.168.0.172:8000", {
+    socket = io(devURL, {
       transports: ['websocket'], // Force WebSocket transport
     });
 
     // Listen for notifications
     socket.on('connect', () => {
-      console.log('Socket connected:', socket.id);
-      socket.emit('joinRoom', userId); // Join the room with the userId
+      // console.log('Socket connected:', socket.id);
+      // console.log('connected to : ', userId);
 
-      socket.on('notification', (notify) => handleNotification(notify))
+      socket.emit('joinRoom', decodedJWT); // Join the room with the userId
+
+      // socket.on('notification', (notify) => handleNotification(notify))
+      socket.on('server', (data) => console.log('server se aaya -->', data))
+      socket.on('notification', (data) => console.log(' ------ notification : -->', data))
     });
 
     socket.on('connect_error', (error) => {
-      console.error('Connection error:', error);
+      // console.error('Connection error:', error);
     });
 
     socket.on('disconnect', (reason) => {
-      console.log('Socket disconnected:', reason);
+      // console.log('Socket disconnected:', reason);
     });
 
     return () => {
       // Cleanup on component unmount
       socket.disconnect();
     };
-  }, [userId]);
+  }, [decodedJWT]);
 
   // Function to mark a specific notification as read
   const markAsRead = (id) => {

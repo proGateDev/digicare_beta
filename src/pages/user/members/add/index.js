@@ -3,7 +3,6 @@ import DefaultLayout from "../../../../component/Layouts/DefaultLayout";
 import SelectGroupTwo from "../../../../component/SelectGroup/SelectGroupTwo";
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import useAuth from "../../../../hooks/useAuth";
 import { addUserMember } from "../../../../controllers/user/member";
 import { useRouter } from "next/router";
 

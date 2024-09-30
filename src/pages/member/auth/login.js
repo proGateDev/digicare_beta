@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import SignIn from '../../../component/GoogleSignup';
-import useAuth from '../../../hooks/useAuth';
 import { login } from '../../../controllers/member/auth';
+import { useProtectedLoginRoute } from '../../../hooks/useProtectedLoginRoute';
 
 const Login = () => {
     const router = useRouter();
     //=-=========================
-    const { tokenVilidity } = useAuth()
-    // tokenVilidity(router, 'member')
-    //=-=========================
+useProtectedLoginRoute('member')    //=-=========================
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
