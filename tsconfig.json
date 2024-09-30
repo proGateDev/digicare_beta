@@ -33,7 +33,7 @@
     "src/component/Header/DarkModeSwitcher.tsx",
     "src/component/Header/index.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/component/sidebar/index.js"  ],
   "exclude": [
     "node_modules"
   ]
