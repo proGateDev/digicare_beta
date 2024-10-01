@@ -10,7 +10,7 @@ const DropdownNotification = () => {
   const { decodedToken } = useAuth()
 
 
-  
+
 
 
 
@@ -25,12 +25,9 @@ const DropdownNotification = () => {
 
 
   const [notifications, setNotifications] = useState([]);
-  let socket; // Declare socket here
-  // const userId = decodedToken()
-console.log('decodedJWT',decodedToken);
+  let socket;
 
 
-  // console.log('notification =========', notification)
   const handleNotification = (notification) => {
 
     console.log('notification =========', notification)
@@ -43,8 +40,21 @@ console.log('decodedJWT',decodedToken);
     setNotifications((prev) => [...prev, newNotification]);
     setNotifying(true);
   };
+  const [userType, setUserType] = useState("")
+  const [userId, setUserId] = useState("")
+  useEffect(() => {
+    decodedToken().then((x) => {
+      console.log(' DropdownNotification ------>', x);
+
+
+      setUserId(x?.id)
+      setUserType(x?.userType)
+
+    })
+  }, [])
 
   useEffect(() => {
+
     // Initialize the socket connection when the component mounts
     socket = io(devURL, {
       transports: ['websocket'], // Force WebSocket transport
@@ -55,11 +65,14 @@ console.log('decodedJWT',decodedToken);
       // console.log('Socket connected:', socket.id);
       // console.log('connected to : ', userId);
 
-      socket.emit('joinRoom', decodedJWT); // Join the room with the userId
+      socket.emit('joinRoom', userId); // Join the room with the userId
 
       // socket.on('notification', (notify) => handleNotification(notify))
-      socket.on('server', (data) => console.log('server se aaya -->', data))
-      socket.on('notification', (data) => console.log(' ------ notification : -->', data))
+      socket.on('getUserId', (userId) => console.log('----- userId ---------> ', userId))
+      socket.on('notification', (data) => {
+        console.log(' ------ notification : -->', data)
+        handleNotification(data)
+      })
     });
 
     socket.on('connect_error', (error) => {
@@ -74,7 +87,8 @@ console.log('decodedJWT',decodedToken);
       // Cleanup on component unmount
       socket.disconnect();
     };
-  }, [decodedJWT]);
+  }, [userId]);
+  console.log('====', userId);
 
   // Function to mark a specific notification as read
   const markAsRead = (id) => {
@@ -84,6 +98,9 @@ console.log('decodedJWT',decodedToken);
       setNotifying(false); // If this was the last notification
     }
   };
+
+
+  // console.log("decodedJWT ========== ", decodedJWT);
 
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">

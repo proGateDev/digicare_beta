@@ -2,17 +2,25 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/auth';
 
-export function useProtectedLoginRoute(userType) {
-  const { user, loading } = useAuth();
+export function useProtectedLoginRoute() {
+  const { decodedToken } = useAuth();
   const router = useRouter();
-console.log('user== useProtectedLoginRoute ============',user);
 
-  useEffect(() => {
-  
-    if (user) {
-      router.push(`/${userType}/dashboard`);  // Redirect to login if not authenticated
+  const checkAuthAndRedirect = async () => {
+    const decoded = await decodedToken();
+
+    console.log('useProtectedLoginRoute -> Decoded token:', decoded);
+
+    if (decoded?.userType) {
+      // If user is already authenticated, redirect them to their dashboard
+      router.push(`/${decoded.userType}/dashboard`);
     }
-  }, [user, loading, router]);
-  console.log('leaking ---d--------');
-  
+  };
+  useEffect(() => {
+
+    checkAuthAndRedirect();
+  }, []);
+// }, [decodedToken, router]);
+
+  console.log('useProtectedLoginRoute executed');
 }

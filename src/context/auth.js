@@ -15,6 +15,7 @@ export function AuthProvider({ children }) {
     // Simulate fetching user info (e.g., from local storage or an API)
     const token = sessionStorage.getItem('token');
 
+
     if (token) {
       // Example: Decode token or validate session
       setUser({ token });
@@ -23,17 +24,18 @@ export function AuthProvider({ children }) {
   }, []);
 
   let jwtToken = ''
+  let userType = ''
   const login = async (email, password) => {
     try {
-      const response = await axios.post(`${devURL}/user/auth/login`, {
+      const response = await axios.post(`${devURL}/auth/login`, {
         email: email,
         password: password
       });
 
       jwtToken = response?.data?.token
-      console.log('========= AuthProvider response --->', response?.data?.token)
+      userType = response?.data?.type
       sessionStorage.setItem('token', jwtToken);
-      router.push('/user/dashboard');
+      router.push(`/${userType}/dashboard`);
     } catch (error) {
       console.error('Login failed', error);
       Swal.fire({
@@ -47,7 +49,7 @@ export function AuthProvider({ children }) {
 
     sessionStorage.setItem('token', jwtToken);
     setUser({ jwtToken });
-    router.push('/user/dashboard');
+    router.push(`/${userType}/dashboard`);
   };
 
 
@@ -59,7 +61,7 @@ export function AuthProvider({ children }) {
   const logout = () => {
     sessionStorage.removeItem('token');
     setUser(null);
-    router.push('/user/auth/login');
+    router.push('/auth/login');
   };
 
 
@@ -71,24 +73,46 @@ export function AuthProvider({ children }) {
 
 
 
-let decodedJWT = ''
-  const decodedToken =  () => {
+  const decodedToken = async () => {
     const token = sessionStorage.getItem('token');
-    const response =  axios.get(`${devURL}/jwt/decrypt`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    });
-    // console.log('decodedToken  response=====',response?.data?.id);
-    if (response ) {
-      decodedJWT = response?.data?.id
-      return decodedJWT
-
+  
+    // Check if token exists
+    if (!token) {
+      console.warn("No token found");
+      return null; // Handle no token case
     }
-
+  
+    try {
+      // Make API call to decode the token
+      const response = await axios.get(`${devURL}/jwt/decrypt`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      // If the response is successful, return the decoded token data
+      if (response) {
+        const decodedJWT = await response.data;
+        return decodedJWT;
+      }
+    } catch (error) {
+      // Handle 401 or other errors
+      if (error.response?.status === 401) {
+        console.error("Invalid token or session expired", error);
+        Swal.fire({
+          title: "Session Expired",
+          text: "Please log in again.",
+          icon: "warning"
+        });
+        logout(); // Log the user out if token is invalid
+      } else {
+        console.error("Error decoding token", error);
+      }
+      return null; // Return null in case of error
+    }
   };
-
+  
 
 
   return (

@@ -15,8 +15,7 @@ import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
 import { useAuth } from '../../../context/auth';
 
 const Dashboard = () => {
-  useProtectedRoute('user'); // Protect this page
-
+  useProtectedRoute();
   const { user, logout } = useAuth();
 
   const { isPending, error, userProfile } = useUserProfile();

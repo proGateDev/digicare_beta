@@ -3,9 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import ClickOutside from "../ClickOutside";
 import { useRouter } from 'next/router';
+import { useAuth } from '../../context/auth'
 
 const DropdownUser = ({ profile }) => {
-  const router = useRouter();
+  const {logout} = useAuth();
   const profileData = profile
   // console.log('profileData ===',profileData);
 
@@ -13,7 +14,7 @@ const DropdownUser = ({ profile }) => {
 
 
   const handleLogout = () => {
-    logout(router);
+    logout()
     setDropdownOpen(false);
   };
 

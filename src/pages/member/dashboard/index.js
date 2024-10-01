@@ -13,7 +13,7 @@ const Dashboard = () => {
   const { isPending, error, memberProfile } = useMemberProfile()
 
 
-useProtectedRoute('member')
+useProtectedRoute()
 
 
 

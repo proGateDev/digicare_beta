@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import SignIn from '../../../component/GoogleSignup';
+import SignIn from '../../component/GoogleSignup';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { devURL } from '../../../../contsants/endPoints';
-import { useAuth } from '../../../context/auth';
-import { useProtectedLoginRoute } from '../../../hooks/useProtectedLoginRoute';
+import { devURL } from '../../../contsants/endPoints';
+import { useAuth } from '../../context/auth';
+import { useProtectedLoginRoute } from '../../hooks/useProtectedLoginRoute';
 
 
 const Login = () => {
