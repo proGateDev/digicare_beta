@@ -78,7 +78,6 @@ import { devURL } from "../../../../contsants/endPoints";
 
 const ProfileScreen = () => {
   const router = useRouter();
-  const { tokenVilidity } = useAuth();
   // tokenVilidity(router, 'user');
   let token = ''
   if (typeof window !== 'undefined') {
