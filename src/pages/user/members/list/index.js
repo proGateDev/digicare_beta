@@ -1,18 +1,28 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DefaultLayout from "../../../../component/Layouts/DefaultLayout";
 
 import { useRouter } from "next/router";
-import { getUserMembers, useUserMembers } from "../../../../controllers/user/member";
+import { useUserMembers } from "../../../../controllers/user/member";
 import { getUserProfile, useUserProfile } from "../../../../controllers/user/profile";
-import { Table } from "../../../../component/table";
+import MemberListCard from "../../../../component/memberListCard";
+
 
 const MemberList = () => {
-  const { isPending, error, userProfile } = useUserProfile();
   const { userMembers } = useUserMembers()
+  const { isPending, error, userProfile } = useUserProfile();
+  // const { userMembers } = useUserMembers()
 
+  const handleDelete = (id) => {
+    console.log(`Delete member with id: ${id}`);
+  };
 
+  const handleUpdate = (id) => {
+    console.log(`Update member with id: ${id}`);
+  };
 
-
+  console.log('==========userMembers==========================');
+  console.log(userMembers?.members);
+  console.log('====================================');
 
   return (
     <DefaultLayout
@@ -21,10 +31,14 @@ const MemberList = () => {
       {isPending ? (
         <p>Loading profile...</p>
       ) : userProfile ? (
-        <Table
-          userMemberData={userMembers?.members}
-
-        />
+        <>
+          {userMembers && userMembers?.members?.map(member =>
+            <MemberListCard
+              member={member}  // Use mock data if userMembers are not available
+              onDelete={handleDelete}
+              onUpdate={handleUpdate}
+            />)}
+        </>
       ) : (
         <p>No profile data available</p>
       )}

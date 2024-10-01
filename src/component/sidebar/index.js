@@ -23,7 +23,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isMember }) => {
       >
         {/* Sidebar Header */}
         <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-          <Link href="/dashboard">
+          <Link href="/user/dashboard">
             <Image
               width={40}
               height={40}

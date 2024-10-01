@@ -13,6 +13,7 @@ import Track from "../../../component/tracking";
 import Track_v1 from "../../../component/tracking";
 import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
 import { useAuth } from '../../../context/auth';
+import Teams from '../../../component/teams'
 
 const Dashboard = () => {
   useProtectedRoute();
@@ -23,26 +24,27 @@ const Dashboard = () => {
 
   return (
 
-    // <ProtectedRoute>
+    <DefaultLayout
+      profile={userProfile?.user}
+    >
 
-      <DefaultLayout
-        profile={userProfile?.user}
-      >
+      {userProfile ? (
+        <>
+          <div className="flex flex-col md:flex-row w-full">
+            <div className="md:container">
+              <GoogleMaps />
+              <MemberCard />
+            </div>
+            <div className="w-full md:w-1/3 p-4">
+              <Teams />
+            </div>
+          </div>
+        </>
+      ) : (
+        <p>No profile data available</p>
+      )}
 
-
-        {userProfile ? (
-          <>
-            {/* <GoogleMaps /> */}
-            <Tabs />
-            <MemberCard />
-            <Track />
-            <Track_v1 />
-          </>
-        ) : (
-          <p>No profile data available</p>
-        )}
-
-      </DefaultLayout>
+    </DefaultLayout>
     // </ProtectedRoute>
   );
 };
