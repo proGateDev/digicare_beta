@@ -1,0 +1,22 @@
+     {/* <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform transform hover:scale-105">
+          <img
+            src={`https://via.placeholder.com/100`} // Placeholder image; replace with member's image URL
+            alt=""
+            className="w-24 h-24 rounded-full border-4 border-gray-200 shadow-md"
+          />
+          <h2 className="mt-4 text-xl font-semibold">.name</h2>
+          <p className="text-gray-600">.email</p>
+          <p className="text-sm text-gray-400">Mobile: .mobile</p>
+          <p className={`mt-2 text-sm font-semibold $.isApproved ? 'text-green-600' : 'text-red-600'}`}>
+            Status
+          </p>
+          <p className="text-xs text-gray-500">Location: .locationStatus</p>
+          <div className="mt-4 flex space-x-2">
+            <button className="bg-blue-500 text-white px-4 py-1 rounded-md hover:bg-blue-600 transition-colors">
+              Edit
+            </button>
+            <button className="bg-red-500 text-white px-4 py-1 rounded-md hover:bg-red-600 transition-colors">
+              Delete
+            </button>
+          </div>
+        </div> */}

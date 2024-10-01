@@ -13,8 +13,15 @@ import Track_v1 from "../../../../component/userTracking";
 
 const MemberDetail = () => {
   const router = useRouter()
-  // console.log('router id  ===========',)
-  const memberId = router?.query?.memberId;
+  const [memberId, setMemberId] = useState('');
+ 
+  useEffect(() => {
+    if (router?.query?.memberId) {
+ 
+      setMemberId(router?.query?.memberId);
+    }
+  // }, [router?.query?.memberId]);
+}, [router.isReady, router.query?.memberId]);
   const { isPending, error, userProfile } = useUserProfile();
 
   const { data } = useUserMembersById(memberId);
@@ -22,7 +29,7 @@ const MemberDetail = () => {
   // const memberDetail = userMemberDetail()
 
   console.log(data?.data?.member, '========memberDetail ------- ',);
-  let userMemberDetail = data?.data?.member
+  let memberDetail = data?.data?.member
 
   return (
     <DefaultLayout
@@ -53,7 +60,7 @@ const MemberDetail = () => {
         //   </>
         // )
         <Details
-          memberDetail={userMemberDetail}
+          memberDetail={memberDetail}
         />
       ) : (
         <p>No profile data available</p>

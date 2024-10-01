@@ -76,7 +76,9 @@ export const fetchUserMembersById = async (memberId) => {
   
   const token = sessionStorage.getItem('token');
 
-  const response = await axios.post(`${devURL}/user/members/member-by-id`,{memberId}, {
+  console.log('memberId',memberId);
+  let memId = memberId
+  const response = await axios.get(`${devURL}/user/members/${memId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
@@ -12,13 +13,17 @@ const MemberListCard = ({ member, onDelete, onUpdate }) => {
 
   return (
     <div
-      className="flex items-center justify-between p-4 mb-4 bg-white rounded-lg shadow-lg hover:bg-gray-100 transition-colors">
+      className="flex items-center justify-around  p-4 mb-4 bg-white rounded-lg shadow-lg hover:bg-gray-100 transition-colors">
       {/* Profile Image */}
       <div
-            onClick={()=>handleRowClick(member?._id)}
+        onClick={() => handleRowClick(member?._id)}
 
-      className="flex items-center space-x-4">
-        <img src={member?.imageUrl} alt={member.name} className="w-14 h-14 rounded-full border-2 border-gray-300" />
+        className="flex items-center space-x-4">
+        <Image
+          width={50}
+          height={50}
+          src={member?.imageUrl ? member.imageUrl : '/defaultAvatar.png'}
+          alt={member.name} className="w-14 h-14 rounded-full border-2 border-gray-300" />
         <div>
           <h2 className="text-lg font-semibold">{member.name}</h2>
           <p className="text-gray-500">{member.email}</p>
@@ -27,8 +32,8 @@ const MemberListCard = ({ member, onDelete, onUpdate }) => {
       </div>
 
       {/* Status */}
-      <div className={`px-3 py-1 rounded-full text-sm font-semibold shadow-md ${member.status === 'Active' ? 'bg-green-200 text-green-700' : 'bg-rose-200 text-red-700'}`}>
-        {member.status}
+      <div className={`px-3 py-1 rounded-full text-sm font-semibold shadow-md ${member.isApproved ? 'bg-green-200 text-green-700' : 'bg-rose-200 text-red-700'}`}>
+        {member.isApproved ? "Approved " : "Pending"}
       </div>
 
       {/* Action Buttons */}

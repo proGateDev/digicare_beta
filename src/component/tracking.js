@@ -3,7 +3,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
-export default function Track() {
+export default function Track({ memberDetail }) {
+  let lat = memberDetail.location.latitude
+  let lng = memberDetail.location.longitude
+  console.log(lat);
+  console.log(lng);
+  
   const mapRef = useRef(null);
   const markerRef = useRef(null);
   const [location, setLocation] = useState({ latitude: null, longitude: null });

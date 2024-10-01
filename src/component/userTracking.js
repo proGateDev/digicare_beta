@@ -14,11 +14,12 @@ export default function UserTrack({ userType, userId, location }) {
 
   // Hook for updating location
   const { mutate: updateLocation, isLoading: isUpdatingLocation } = useUpdateMemberLocation();
-  const { geoLocation } = useGeocode(location.latitude, location.longitude)
+  const { geoLocation } = useGeocode(location?.latitude, location?.longitude)
   useEffect(() => {
     const initializeMap = async (lat, lng) => {
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
+        // apiKey: 'AIzaSyDtmPz9N0_DeSnffKZqN7FaWLwtzdfg_AQ',
         version: "quarterly",
       });
 

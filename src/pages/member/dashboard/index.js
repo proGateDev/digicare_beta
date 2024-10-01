@@ -1,41 +1,50 @@
 import React, { useEffect, useState } from "react";
 import DefaultLayout from "../../../component/Layouts/DefaultLayout";
 import GoogleMaps from "../../../component/GoogleMap/googleMps";
-import MemberCard from "../../../component/MemberCard/memberCard";
-import Tabs from "../../../component/Tabs/tabs";
-import { useRouter } from "next/router";
 import { useMemberProfile } from "../../../controllers/member/profile";
-import MemberTrack  from '../../../component/memberTracking'
 import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
+import NewsUpdate from "../../../component/update";
+import MemberTrack from "../../../component/memberTracking";
+import CardProfile from "../../../component/CardProfile";
+import Friend from '../../../component/teams'
 
 
 const Dashboard = () => {
   const { isPending, error, memberProfile } = useMemberProfile()
 
 
-useProtectedRoute()
+  useProtectedRoute()
 
 
 
 
   return (
     <DefaultLayout
-      isMember={true}
-      profile={memberProfile?.user}
+    // isMember={true}
+    // profile={memberProfile?.user}
     >
-      {isPending ? (
+      {/* {isPending ? (
         <p>Loading profile...</p>
       ) : memberProfile ? (
         <>
-          {/* <GoogleMaps /> */}
           <Tabs />
-          {/* <MemberCard /> */}
           <MemberTrack />
-
         </>
       ) : (
         <p>No profile data available</p>
-      )}
+      )} */}
+      <div className="flex flex-row h-screen max-w-7xl mx-auto gap-6">
+        <div className="md:container">
+          <NewsUpdate />
+          {/* <GoogleMaps /> */}
+          <MemberTrack />
+        </div>
+
+        <div className="">
+          <CardProfile />
+          <Friend />
+        </div>
+      </div>
     </DefaultLayout>
   );
 };
