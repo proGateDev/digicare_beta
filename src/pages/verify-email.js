@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { devURL } from '../../contsants/endPoints';
 
 const VerifyEmail = () => {
   const [message, setMessage] = useState('');
@@ -9,7 +10,7 @@ const VerifyEmail = () => {
 
   useEffect(() => {
     if (token) {
-      axios.get(`http://192.168.0.172:8000/member/auth/verify-email?token=${token}`)
+      axios.get(`${devURL}/member/auth/verify-email?token=${token}`)
         .then(response => {
           setMessage(response.data.message);
           setTimeout(() => {

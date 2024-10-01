@@ -34,6 +34,7 @@ const MemberList = () => {
         <>
           {userMembers && userMembers?.members?.map(member =>
             <MemberListCard
+              key={member?._id}
               member={member}  // Use mock data if userMembers are not available
               onDelete={handleDelete}
               onUpdate={handleUpdate}
