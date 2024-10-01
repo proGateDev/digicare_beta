@@ -127,7 +127,7 @@ const Login = () => {
                 <div className="flex justify-center mt-4">
                     {isLogin ? (
                         <p>
-                            Don't have an account?{' '}
+                            Dont have an account?{' '}
                             <button type="button" onClick={() => setIsLogin(false)} className="text-blue-600">Sign Up</button>
                         </p>
                     ) : (
