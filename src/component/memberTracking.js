@@ -11,7 +11,6 @@ const MemberTrack = ({ memberId }) => {
     try {
       const response = await fetch(
         `https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY}`,
-        // `https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDtmPz9N0_DeSnffKZqN7FaWLwtzdfg_AQ`,
         {
           method: 'POST',
         }

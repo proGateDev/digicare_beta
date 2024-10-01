@@ -19,7 +19,6 @@ export default function UserTrack({ userType, userId, location }) {
     const initializeMap = async (lat, lng) => {
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
-        // apiKey: 'AIzaSyDtmPz9N0_DeSnffKZqN7FaWLwtzdfg_AQ',
         version: "quarterly",
       });
 
