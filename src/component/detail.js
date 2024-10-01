@@ -57,7 +57,7 @@ const Details = ({ memberDetail }) => {
               <span className="font-semibold">Destination:</span>Unknown
             </div>
             <div>
-              <span className="font-semibold">Started On:</span> 'N/A'
+              <span className="font-semibold">Started On:</span> N/A
             </div>
           </div>
         </div>
