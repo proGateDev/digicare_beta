@@ -112,3 +112,49 @@ export const useUserMembersById = (memberId) => {
     // memberDetail: userMembers?.member|| null, // Return null if no data is available
   };
 };
+
+
+
+
+//========================
+//======================
+export const fetchUserMembersLocationById = async (memberId) => {
+  
+  const token = sessionStorage.getItem('token');
+
+  console.log('memberId',memberId);
+  let memId = memberId
+  const response = await axios.get(`${devURL}/user/members/${memId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  });
+
+  // Check if the response contains data
+  if (response.status !== 200 || !response.data) {
+    console.error('Error fetching members:', response.data);
+    throw new Error(`Failed to fetch members: ${response.statusText}`);
+  }
+  // console.log(response.data.member, '========response ------- ',);
+
+  return response?.data?.member?.location?.coordinates; // Return the members data
+};
+
+
+export const useUserMembersLocationById = (memberId) => {
+  
+  const { data, error, isLoading, isFetching } = useQuery({
+    queryKey: ['userMembersById'],  // Unique key for this query
+    // queryFn: (memberId)=>fetchUserMembersById(memberId),   // Function to fetch members
+    queryFn: ()=>fetchUserMembersLocationById(memberId),   // Function to fetch members
+  });
+// let userMembers = data
+
+  return {
+    isPending: isLoading || isFetching,
+    error,
+    data,
+    // memberDetail: userMembers?.member|| null, // Return null if no data is available
+  };
+};

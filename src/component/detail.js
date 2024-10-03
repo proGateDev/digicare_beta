@@ -6,7 +6,7 @@ import BackSpace from './BackSpace';
 
 const Details = ({ memberDetail }) => {
 
-  console.log('=======memberDetail======',memberDetail)
+  // console.log('=======memberDetail======', memberDetail)
   // console.log(memberDetail)
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Details = ({ memberDetail }) => {
         <div className="flex justify-between items-center border-b pb-4 mb-6">
           <div>
             <h1 className="text-2xl font-bold">Tracking Details</h1>
-         <BackSpace/>
+            <BackSpace />
           </div>
 
           <div>
@@ -40,9 +40,8 @@ const Details = ({ memberDetail }) => {
           {/* <UserTrack
             location={memberDetail}
           /> */}
-           <UserTrack
-           location={memberDetail}
-           />
+          <UserTrack
+          />
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow my-6">

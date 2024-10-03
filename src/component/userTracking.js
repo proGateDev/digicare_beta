@@ -1,29 +1,39 @@
 "use client";
-
+import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
-import { useUpdateMemberLocation } from '../controllers/member/track'; // Adjust the import path
 import { useGeocode } from "../controllers/user/track";
+import { useUserMembersLocationById } from "../controllers/user/member";
 
-export default function UserTrack({location}) {
-
-  console.log('--------- location=====',location.location);
-  // console.log('--------- location=====',location.location.coordinates[1]);
-  // console.log('UserTrack location=====',location?.coordinates[0],location?.coordinates[1]);
-  
-  const memberId = '66f798ccbcf7a10ea938add6'; // Hardcoded for demonstration, you can replace it with a dynamic value if needed
-
+export default function UserTrack() {
+  const router = useRouter();
+  const [memberId, setMemberId] = useState('');
   const mapRef = useRef(null);
   const markerRef = useRef(null);
   const [error, setError] = useState(null);
-
-  // Hook for updating location
-  const { mutate: updateLocation, isLoading: isUpdatingLocation } = useUpdateMemberLocation();
-  // const { geoLocation } = useGeocode(location?.location?.coordinates[0],location?.location?.coordinates[1])
-  const { geoLocation } = useGeocode(location?.location?.coordinates[1],location?.location?.coordinates[0])
-  // const { geoLocation } = useGeocode(26,84)
+  
   useEffect(() => {
+    if (router?.query?.memberId) {
+      setMemberId(router.query.memberId);
+    }
+  }, [router.isReady, router.query?.memberId]);
+
+  const { data, isPending } = useUserMembersLocationById(memberId);
+  console.log('--------- DATA ---------------->', data);
+
+  // Extract latitude and longitude from data safely
+  const lat = data?.[1];
+  const lng = data?.[0];
+
+  const { geoLocation } = useGeocode(lat, lng);
+
+  useEffect(() => {
+    // Initialize map only if lat, lng, and mapRef are available
     const initializeMap = async (lat, lng) => {
+      if (!lat || !lng || !mapRef.current) {
+        return;
+      }
+
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
         version: "quarterly",
@@ -46,39 +56,26 @@ export default function UserTrack({location}) {
       });
     };
 
-    if (location?.location) {
-      const latitude= location?.location.coordinates[1];
-      const  longitude = location?.location.coordinates[0];
-      initializeMap(latitude, longitude);
-      updateLocation({ memberId, latitude, longitude }); // Update location using the mutation hook
-    } else {
-      setError("Location data is not available.");
+    // Call initializeMap only if data is ready
+    if (!isPending && lat !== undefined && lng !== undefined) {
+      initializeMap(lat, lng);
     }
+  }, [lat, lng, isPending]); // Dependencies updated
 
-    }, [location, memberId, updateLocation]); // Added location as a dependency
-  // }, []); // Added location as a dependency
-  console.log('geoLocation ------------>', geoLocation?.formattedAddress);
+  if (isPending) {
+    return <div>Pending...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <>
-          {location ? (
-            <>
-              <p className="bg-[#8dbaee] rounded-xl mb-4 shadow-lg text-white font-bold p-4">
-                {geoLocation?.formattedAddress}
-              </p>
-
-              {isUpdatingLocation && <p>Updating location...</p>} {/* Optional loading indicator */}
-              <div style={{ height: "500px", width: "100%" }} ref={mapRef} className="rounded-lg shadow-5"></div>
-            </>
-          ) : (
-            <p>Loading location...</p>
-          )}
-        </>
-      )}
+      <p className="bg-[#8dbaee] rounded-xl mb-4 shadow-lg text-white font-bold p-4">
+        {geoLocation?.formattedAddress}
+      </p>
+      <div style={{ height: "500px", width: "100%" }} ref={mapRef} className="rounded-lg shadow-5"></div>
     </div>
   );
 }
