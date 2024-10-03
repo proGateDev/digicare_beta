@@ -9,8 +9,7 @@ import axios from "axios";
 import { devURL } from "../../../../contsants/endPoints";
 import { fetchUserProfile } from "../../../controllers/user/profile";
 import { useUserProfile } from '../../../controllers/user/profile';
-import Track from "../../../component/tracking";
-import Track_v1 from "../../../component/tracking";
+import { useUserMembers } from '../../../controllers/user/member';
 import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
 import { useAuth } from '../../../context/auth';
 import Teams from '../../../component/teams'
@@ -21,6 +20,8 @@ const Dashboard = () => {
 
   const { isPending, error, userProfile } = useUserProfile();
 
+  const { userMembers } = useUserMembers();
+  console.log('userMembers ---', userMembers?.members);
 
   return (
 
@@ -33,7 +34,13 @@ const Dashboard = () => {
           <div className="flex flex-col md:flex-row w-full">
             <div className="md:container">
               <GoogleMaps />
-              <MemberCard />
+              <MemberCard
+                members={userMembers?.members}
+              />
+
+
+              {/* {userMembers.map()=>(
+            )} */}
             </div>
             <div className="w-full md:w-1/3 p-4">
               <Teams />
@@ -45,7 +52,6 @@ const Dashboard = () => {
       )}
 
     </DefaultLayout>
-    // </ProtectedRoute>
   );
 };
 

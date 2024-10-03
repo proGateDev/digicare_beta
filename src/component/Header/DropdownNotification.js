@@ -9,21 +9,6 @@ const DropdownNotification = () => {
   const [notifying, setNotifying] = useState(false);
   const { decodedToken } = useAuth()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   const [notifications, setNotifications] = useState([]);
   let socket;
 
@@ -44,10 +29,7 @@ const DropdownNotification = () => {
   const [userId, setUserId] = useState("")
   useEffect(() => {
     decodedToken().then((x) => {
-      console.log(' DropdownNotification ------>', x);
-
-
-      setUserId(x?.id)
+        setUserId(x?.id)
       setUserType(x?.userType)
 
     })
@@ -88,7 +70,6 @@ const DropdownNotification = () => {
       socket.disconnect();
     };
   }, [userId]);
-  console.log('====', userId);
 
   // Function to mark a specific notification as read
   const markAsRead = (id) => {

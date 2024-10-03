@@ -20,10 +20,6 @@ const MemberList = () => {
     console.log(`Update member with id: ${id}`);
   };
 
-  console.log('==========userMembers==========================');
-  console.log(userMembers?.members);
-  console.log('====================================');
-
   return (
     <DefaultLayout
       profile={userProfile?.user}

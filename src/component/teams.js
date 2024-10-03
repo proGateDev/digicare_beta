@@ -14,7 +14,7 @@ function Friend() {
   ];
 
   return (
-    <div className="max-w-md mx-auto p-6 my-4 bg-gray shadow-lg rounded-lg hidden md:block"> {/* Hide on mobile */}
+    <div className="max-w-md mx-auto p-6 bg-gray shadow-lg rounded-lg hidden md:block"> {/* Hide on mobile */}
       <h2 className="text-3xl font-bold text-left text-gray-800 mb-6">Members</h2>
       <div className="space-y-4">
         {friends.map((friend, index) => (

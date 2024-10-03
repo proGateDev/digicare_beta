@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { devURL } from '../../contsants/endPoints';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AuthContext = createContext();
 

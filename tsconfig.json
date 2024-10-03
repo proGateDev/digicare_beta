@@ -21,7 +21,8 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "next-env.d.ts",
@@ -32,8 +33,9 @@
     "src/component/Header/DropdownMessage.tsx",
     "src/component/Header/DarkModeSwitcher.tsx",
     "src/component/Header/index.tsx",
-    ".next/types/**/*.ts"
-, "src/component/sidebar/index.js"  ],
+    ".next/types/**/*.ts",
+    "src/component/sidebar/index.js"
+  ],
   "exclude": [
     "node_modules"
   ]

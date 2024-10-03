@@ -59,12 +59,12 @@ export default function UserTrack({ userType, userId, location }) {
         <>
           {location ? (
             <>
-              <p className="bg-[#28282B] rounded-xl mb-4 shadow-lg text-white font-bold p-4">
+              <p className="bg-[#8dbaee] rounded-xl mb-4 shadow-lg text-white font-bold p-4">
                 {geoLocation?.formattedAddress}
               </p>
 
               {isUpdatingLocation && <p>Updating location...</p>} {/* Optional loading indicator */}
-              <div style={{ height: "500px", width: "100%" }} ref={mapRef}></div>
+              <div style={{ height: "500px", width: "100%" }} ref={mapRef} className="rounded-lg shadow-5"></div>
             </>
           ) : (
             <p>Loading location...</p>

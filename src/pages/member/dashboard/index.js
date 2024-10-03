@@ -7,16 +7,14 @@ import NewsUpdate from "../../../component/update";
 import MemberTrack from "../../../component/memberTracking";
 import CardProfile from "../../../component/CardProfile";
 import Friend from '../../../component/teams'
+// import ChartOne from '../../../component/Charts/ChartOne';
+// import PiChartOne from '../../../component/PiChartOne'
 
 
 const Dashboard = () => {
   const { isPending, error, memberProfile } = useMemberProfile()
 
-
   useProtectedRoute()
-
-
-
 
   return (
     <DefaultLayout
@@ -33,11 +31,13 @@ const Dashboard = () => {
       ) : (
         <p>No profile data available</p>
       )} */}
-      <div className="flex flex-row h-screen max-w-7xl mx-auto gap-6">
+      <div className="flex flex-row h-screen max-w-7xl mx-auto gap-2">
         <div className="md:container">
           <NewsUpdate />
-          {/* <GoogleMaps /> */}
+          <GoogleMaps />
           <MemberTrack />
+          {/* <ChartOne/>
+          <PiChartOne/> */}
         </div>
 
         <div className="">
