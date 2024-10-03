@@ -13,6 +13,7 @@ import { useUserMembers } from '../../../controllers/user/member';
 import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
 import { useAuth } from '../../../context/auth';
 import Teams from '../../../component/teams'
+import UserTrack from "../../../component/userTracking";
 
 const Dashboard = () => {
   useProtectedRoute();
@@ -34,6 +35,7 @@ const Dashboard = () => {
           <div className="flex flex-col md:flex-row w-full">
             <div className="md:container">
               <GoogleMaps />
+              {/* <UserTrack /> */}
               <MemberCard
                 members={userMembers?.members}
               />

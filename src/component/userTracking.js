@@ -5,7 +5,12 @@ import { Loader } from "@googlemaps/js-api-loader";
 import { useUpdateMemberLocation } from '../controllers/member/track'; // Adjust the import path
 import { useGeocode } from "../controllers/user/track";
 
-export default function UserTrack({ userType, userId, location }) {
+export default function UserTrack({location}) {
+
+  console.log('--------- location=====',location.location);
+  // console.log('--------- location=====',location.location.coordinates[1]);
+  // console.log('UserTrack location=====',location?.coordinates[0],location?.coordinates[1]);
+  
   const memberId = '66f798ccbcf7a10ea938add6'; // Hardcoded for demonstration, you can replace it with a dynamic value if needed
 
   const mapRef = useRef(null);
@@ -14,7 +19,9 @@ export default function UserTrack({ userType, userId, location }) {
 
   // Hook for updating location
   const { mutate: updateLocation, isLoading: isUpdatingLocation } = useUpdateMemberLocation();
-  const { geoLocation } = useGeocode(location?.latitude, location?.longitude)
+  // const { geoLocation } = useGeocode(location?.location?.coordinates[0],location?.location?.coordinates[1])
+  const { geoLocation } = useGeocode(location?.location?.coordinates[1],location?.location?.coordinates[0])
+  // const { geoLocation } = useGeocode(26,84)
   useEffect(() => {
     const initializeMap = async (lat, lng) => {
       const loader = new Loader({
@@ -39,8 +46,9 @@ export default function UserTrack({ userType, userId, location }) {
       });
     };
 
-    if (location && location.latitude && location.longitude) {
-      const { latitude, longitude } = location;
+    if (location?.location) {
+      const latitude= location?.location.coordinates[1];
+      const  longitude = location?.location.coordinates[0];
       initializeMap(latitude, longitude);
       updateLocation({ memberId, latitude, longitude }); // Update location using the mutation hook
     } else {

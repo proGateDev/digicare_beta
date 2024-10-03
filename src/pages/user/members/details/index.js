@@ -22,6 +22,7 @@ const MemberDetail = () => {
     }
   // }, [router?.query?.memberId]);
 }, [router.isReady, router.query?.memberId]);
+
   const { isPending, error, userProfile } = useUserProfile();
 
   const { data } = useUserMembersById(memberId);

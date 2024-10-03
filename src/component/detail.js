@@ -6,8 +6,8 @@ import BackSpace from './BackSpace';
 
 const Details = ({ memberDetail }) => {
 
-  console.log('=======details======')
-  console.log(memberDetail)
+  console.log('=======memberDetail======',memberDetail)
+  // console.log(memberDetail)
 
   useEffect(() => {
 
@@ -37,9 +37,12 @@ const Details = ({ memberDetail }) => {
 
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Current Location</h2>
-          <UserTrack
-            location={memberDetail?.location}
-          />
+          {/* <UserTrack
+            location={memberDetail}
+          /> */}
+           <UserTrack
+           location={memberDetail}
+           />
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow my-6">
