@@ -1,19 +1,29 @@
 import React from "react";
-import { useRouter } from 'next/router'; 
+import { useRouter } from 'next/router';
+import Navbar from "../component/LandingPage/Navbar";
+import Header from '../component/LandingPage/Header';
+import Product from '../component/LandingPage/Product'
+import About from '../component/LandingPage/About'
+import Review from '../component/LandingPage/Review'
+import Footer from '../component/LandingPage/Footer';
+
 
 export default function Home() {
-    const router = useRouter();
+  const handleClick = () => {
+    alert('Button Clicked!');
+  };
 
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <h1 className="text-4xl font-bold text-blue-600 mb-8">Digicare4u Web App</h1>
-            <button 
-                onClick={() => router.push('/auth/login')} 
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
-            >
-                Login Here!
-            </button>
-        </div>
-    );
+  return (
+    <>
+      <div className="bg-blue-100 py-4">
+        <Navbar />
+        <Header />
+        <Product />
+        <About />
+        <Review />
+        <Footer />
+      </div>
+    </>
+  );
 }
 
