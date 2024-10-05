@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
-export default function GoogleMaps() {
+export default function GoogleMaps({ latitude, longitude }) {
     const mapRef = useRef(null);
     const [marker, setMarker] = useState(null); 
 
@@ -14,10 +14,10 @@ export default function GoogleMaps() {
                 version: 'quarterly',
             });
 
-            const google = await loader.load(); 
+            const google = await loader.load();
             const locationInMap = {
-                lat: 26.846067,
-                lng: 81.061365,
+                lat: latitude,
+                lng:longitude ,
             };
 
             const mapOptions = {
@@ -26,25 +26,29 @@ export default function GoogleMaps() {
                 mapId: 'NEXT_MAPS_TUTS',
             };
 
-            const map = new google.maps.Map(mapRef.current, mapOptions); 
+            const map = new google.maps.Map(mapRef.current, mapOptions);
 
             const newMarker = new google.maps.Marker({
                 position: locationInMap,
                 map: map,
+<<<<<<< HEAD
                 title: "Click to move me!", 
                 name:"user name",
                 location: "location tracking",
                 employeId:"PGT-001",
+=======
+                title: "Click to move me!",
+>>>>>>> ad4e2b8d5c74bbc451ed3be3a8a07ce2f290e79c
             });
 
-            setMarker(newMarker); 
+            setMarker(newMarker);
             google.maps.event.addListener(map, "click", (event) => {
                 const newPosition = {
                     lat: event.latLng.lat(),
                     lng: event.latLng.lng(),
                 };
-                newMarker.setPosition(newPosition); 
-                map.setCenter(newPosition); 
+                newMarker.setPosition(newPosition);
+                map.setCenter(newPosition);
             });
         };
 
