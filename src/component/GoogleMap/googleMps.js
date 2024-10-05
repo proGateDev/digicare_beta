@@ -5,7 +5,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 
 export default function GoogleMaps() {
     const mapRef = useRef(null);
-    const [marker, setMarker] = useState(null); // State to hold the marker
+    const [marker, setMarker] = useState(null); 
 
     useEffect(() => {
         const initializeMap = async () => {
@@ -32,6 +32,9 @@ export default function GoogleMaps() {
                 position: locationInMap,
                 map: map,
                 title: "Click to move me!", 
+                name:"user name",
+                location: "location tracking",
+                employeId:"PGT-001",
             });
 
             setMarker(newMarker); 

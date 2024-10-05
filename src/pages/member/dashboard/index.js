@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DefaultLayout from "../../../component/Layouts/DefaultLayout";
 import GoogleMaps from "../../../component/GoogleMap/googleMps";
 import { useMemberProfile } from "../../../controllers/member/profile";
@@ -6,45 +6,39 @@ import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
 import NewsUpdate from "../../../component/update";
 import MemberTrack from "../../../component/memberTracking";
 import CardProfile from "../../../component/CardProfile";
-import Friend from '../../../component/teams'
-// import ChartOne from '../../../component/Charts/ChartOne';
-// import PiChartOne from '../../../component/PiChartOne'
-
+import Friend from '../../../component/teams';
+import Loader from '../../../component/loader';
 
 const Dashboard = () => {
-  const { isPending, error, memberProfile } = useMemberProfile()
-
-  useProtectedRoute()
+  useProtectedRoute();
+  
+  const { isPending, error, memberProfile } = useMemberProfile();
 
   return (
-    <DefaultLayout
-    // isMember={true}
-    // profile={memberProfile?.user}
-    >
-      {/* {isPending ? (
-        <p>Loading profile...</p>
+    <DefaultLayout>
+      {isPending ? (
+        <div className="flex justify-center items-center h-screen">
+          <Loader />
+        </div>
+      ) : error ? (
+        <p className="text-red-500">Failed to load data</p>
       ) : memberProfile ? (
-        <>
-          <Tabs />
-          <MemberTrack />
-        </>
+        <div className="flex flex-row h-screen max-w-7xl mx-auto gap-2">
+          <div className="md:container">
+            <NewsUpdate />
+            <GoogleMaps />
+            <MemberTrack />
+          </div>
+
+          <div className="">
+            {/* Pass memberProfile to CardProfile */}
+            <CardProfile memberDetail={memberProfile?.user} />
+            <Friend />
+          </div>
+        </div>
       ) : (
         <p>No profile data available</p>
-      )} */}
-      <div className="flex flex-row h-screen max-w-7xl mx-auto gap-2">
-        <div className="md:container">
-          <NewsUpdate />
-          <GoogleMaps />
-          <MemberTrack />
-          {/* <ChartOne/>
-          <PiChartOne/> */}
-        </div>
-
-        <div className="">
-          <CardProfile />
-          <Friend />
-        </div>
-      </div>
+      )}
     </DefaultLayout>
   );
 };

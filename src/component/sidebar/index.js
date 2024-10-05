@@ -15,13 +15,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isMember }) => {
   const sideBarMenus = isMember ? memberSidebarMenus : userSidebarMenus;
 
   return (
-    <ClickOutside 
-    onClick={() => setSidebarOpen(false)}
+    <ClickOutside
+      onClick={() => setSidebarOpen(false)}
     >
       <aside
-        className={`fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
-      >
-        {/* Sidebar Header */}
+  className={`fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-blue-500 duration-300 ease-linear lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
+  >
         <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
           <Link href="/user/dashboard">
             <Image
