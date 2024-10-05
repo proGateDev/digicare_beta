@@ -1,3 +1,4 @@
+import Profile from "../../../component/profile";
 
 import React from "react";
 import DefaultLayout from "../../../component/Layouts/DefaultLayout";
