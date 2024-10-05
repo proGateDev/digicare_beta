@@ -35,6 +35,7 @@ const MemberTrack = ({ memberId }) => {
       );
     } else {
       console.warn("Browser geolocation not available, using Google API.");
+    await fetchFromGoogleAPI()
     }
   };
 
