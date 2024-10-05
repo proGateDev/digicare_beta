@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DefaultLayout from "../../../component/Layouts/DefaultLayout";
-import GoogleMaps from "../../../component/GoogleMap/googleMps";
+// import GoogleMaps from "../../../component/GoogleMap/googleMps";
 import MemberCard from "../../../component/MemberCard/memberCard";
 import Teams from '../../../component/teams';
 import { useUserProfile } from '../../../controllers/user/profile';
@@ -31,7 +31,7 @@ const Dashboard = () => {
           {userProfile ? (
             <div className="flex flex-col md:flex-row w-full">
               <div className="md:container">
-                <GoogleMaps />
+                {/* <GoogleMaps /> */}
                 <Tabs/>
                 <MemberCard members={userMembers?.members} />
               </div>

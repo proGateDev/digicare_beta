@@ -1,62 +1,9 @@
-// import React, { useEffect, useState } from "react";
-// import DefaultLayout from "../../../component/Layouts/DefaultLayout";
-// import { useRouter } from "next/router";
-// import { getUserProfile } from "../../../controllers/user/profile";
-import Profile from "../../../component/profile";
-
-// const Profile = () => {
-//   const router = useRouter();
-//   const [profileData, setProfileData] = useState(null); // State to hold the profile data
-//   const [loading, setLoading] = useState(true); // State for loading status
-
-//   const fetchProfile = async () => {
-//     try {
-//       const response = await getUserProfile()
-
-//       setProfileData(response?.data?.user); // Assuming response contains data
-//     } catch (error) {
-//       console.error('Error fetching profile:', error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   useEffect(() => {
-//     // Define an async function inside useEffect to handle async/await
-
-//     fetchProfile(); // Call the async function
-
-//   }, []); // Add dependencies like router and tokenDecoded
-//   console.log('final --------', profileData);
-
-//   return (
-//     <DefaultLayout
-//       profile={profileData}
-//     >
-//       {loading ? (
-//         <p>Loading profile...</p>
-//       ) : profileData ? (
-//         <>
-//         
-//         </>
-//       ) : (
-//         <p>No profile data available</p>
-//       )}
-//     </DefaultLayout>
-//   );
-// };
-
-// export default Profile;
-
-
-
-
 
 import React from "react";
 import DefaultLayout from "../../../component/Layouts/DefaultLayout";
-import GoogleMaps from "../../../component/GoogleMap/googleMps";
+// import GoogleMaps from "../../../component/GoogleMap/googleMps";
 import MemberCard from "../../../component/MemberCard/memberCard";
-import Tabs from "../../../component/Tabs/tabs";
+// import Tabs from "../../../component/Tabs/tabs";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query"; // Ensure the import is correct
 import axios from "axios";
