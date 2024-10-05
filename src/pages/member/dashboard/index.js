@@ -29,36 +29,14 @@ const Dashboard = () => {
             <GoogleMaps />
             <MemberTrack />
           </div>
-
           <div className="">
-            {/* Pass memberProfile to CardProfile */}
             <CardProfile memberDetail={memberProfile?.user} />
             <Friend />
           </div>
         </div>
       ) : (
         <p>No profile data available</p>
-<<<<<<< HEAD
       )}
-=======
-      )} */}
-      <div className="flex flex-row h-screen max-w-7xl mx-auto gap-2">
-        <div className="md:container">
-          <NewsUpdate />
-          <h1>Google Map</h1>
-          {/* <GoogleMaps /> */}
-          <h1>Custom one Map</h1>
-          <MemberTrack />
-          {/* <ChartOne/>
-          <PiChartOne/> */}
-        </div>
-
-        <div className="">
-          <CardProfile />
-          <Friend />
-        </div>
-      </div>
->>>>>>> ad4e2b8d5c74bbc451ed3be3a8a07ce2f290e79c
     </DefaultLayout>
   );
 };

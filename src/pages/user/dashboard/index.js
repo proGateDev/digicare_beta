@@ -8,6 +8,7 @@ import { useUserMembers } from '../../../controllers/user/member';
 import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
 import { useAuth } from '../../../context/auth';
 import Loader from '../../../component/loader'
+import Tabs from '../../../component/Tabs';
 
 const Dashboard = () => {
   useProtectedRoute();
@@ -31,6 +32,7 @@ const Dashboard = () => {
             <div className="flex flex-col md:flex-row w-full">
               <div className="md:container">
                 <GoogleMaps />
+                <Tabs/>
                 <MemberCard members={userMembers?.members} />
               </div>
               <div className="w-full md:w-1/3 p-4">

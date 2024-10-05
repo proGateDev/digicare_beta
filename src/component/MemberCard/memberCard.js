@@ -40,7 +40,7 @@ function MemberCard(props) {
               </div>
             </div>
             <div className={`p-2 rounded-md ${member.locationStatus === 'active' ? 'text-green-500' : 'text-red-500'}`}>
-              <button className="px-6 py-3 text-white font-bold bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 focus:ring-4 focus:ring-green-300 rounded-lg shadow-lg transform transition-transform hover:scale-105">
+              <button className="p-3 text-white font-bold bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 focus:ring-4 focus:ring-green-300 rounded-lg shadow-lg transform transition-transform hover:scale-105">
                 Location: Lucknow
               </button>
             </div>

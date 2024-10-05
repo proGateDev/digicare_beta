@@ -27,7 +27,6 @@ const MemberDetail = () => {
 
   const { data } = useUserMembersById(memberId);
 
-  // console.log(data?.data?.member, '========memberDetail ------- ',);
   let memberDetail = data?.data?.member
 
   return (

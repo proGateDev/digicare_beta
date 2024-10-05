@@ -6,28 +6,23 @@ import BackSpace from './BackSpace';
 
 const Details = ({ memberDetail }) => {
 
-  // console.log('=======memberDetail======', memberDetail)
-  // console.log(memberDetail)
-
   useEffect(() => {
 
   })
 
   return (
     <>
-      <div className="container mx-auto p-6">
+      <div className="container mx-auto p-1">
 
         {/* Header Section */}
         <div className="flex justify-between items-center border-b pb-4 mb-6">
           <div>
-            <h1 className="text-2xl font-bold">Tracking Details</h1>
+            {/* <h1 className="text-2xl font-bold">Tracking Details</h1> */}
             <BackSpace />
           </div>
 
-          <div>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2" onClick={() => alert('Download Report')}>Download Report</button>
-            <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => window.location.reload()}>Refresh</button>
-          </div>
+          <div className='flex justify-between items-center'>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2" onClick={() => alert('Download Report')}>Download Report</button>          </div>
         </div>
         <div className='pb-5 min-w-fit'>
           <CardProfile
@@ -35,16 +30,12 @@ const Details = ({ memberDetail }) => {
           />
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-2 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Current Location</h2>
-          {/* <UserTrack
-            location={memberDetail}
-          /> */}
-          <UserTrack
-          />
+          <UserTrack />
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow my-6">
+        <div className="bg-white p-1 rounded-lg shadow my-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">
               Current Status:
