@@ -9,7 +9,7 @@ export function useProtectedLoginRoute() {
   const checkAuthAndRedirect = async () => {
     const decoded = await decodedToken();
 
-    console.log('useProtectedLoginRoute -> Decoded token:', decoded);
+    // console.log('useProtectedLoginRoute -> Decoded token:', decoded);
 
     if (decoded?.userType) {
       // If user is already authenticated, redirect them to their dashboard

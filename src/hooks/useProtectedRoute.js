@@ -9,7 +9,7 @@ export function useProtectedRoute() {
   const protectRoute = async () => {
     const decoded = await decodedToken();
 
-    console.log('Decoded token:', decoded);
+    // console.log('Decoded token:', decoded);
 
     if (!decoded || !decoded.userType) {
       // If the token is invalid or the userType is undefined, redirect to login
@@ -25,5 +25,5 @@ export function useProtectedRoute() {
   // }, [decodedToken, router]);  // Dependency array to avoid unnecessary re-renders
 }, []);  // Dependency array to avoid unnecessary re-renders
 
-  console.log('useProtectedRoute called');
+  // console.log('useProtectedRoute called');
 }

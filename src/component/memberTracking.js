@@ -8,16 +8,18 @@ const MemberTrack = ({ memberId }) => {
   const updateLocationMutation = useUpdateMemberLocation();
   const mapRef = useRef(null);
 
+  // Function to fetch geolocation using browser's Geolocation API
   const fetchGeolocation = async () => {
     if ("geolocation" in navigator) {
-      console.log("Attempting to fetch location via browser geolocation...");
-
-      navigator.geolocation.getCurrentPosition(
+      console.log("fetching location ...........");
+      
+      navigator.geolocation.watchPosition(
         async (position) => {
           const { latitude, longitude, accuracy } = position.coords;
-
-          console.log('Latitude:', latitude, 'Longitude:', longitude, 'Accuracy:', accuracy);
-
+          
+          // console.log('Latitude:', latitude, 'Longitude:', longitude, 'Accuracy:', accuracy);
+          console.log( 'Accuracy ------------------:', accuracy);
+      
           if (accuracy > 50) {
             console.warn('Low accuracy detected from browser geolocation, falling back to Google API.');
             // await fetchFromGoogleAPI();
@@ -31,11 +33,12 @@ const MemberTrack = ({ memberId }) => {
           console.error("Browser Geolocation Error:", error);
           await fetchFromGoogleAPI(); // Fall back to Google API on error
         },
-        { enableHighAccuracy: true, timeout: 30000, maximumAge: 0 }
+        { enableHighAccuracy: true, timeout: 300000, maximumAge: 10 } // Request high accuracy location with extended timeout
       );
+      
     } else {
       console.warn("Browser geolocation not available, using Google API.");
-    await fetchFromGoogleAPI()
+      // await fetchFromGoogleAPI(); // Fallback to Google API if browser geolocation is not available
     }
   };
 
@@ -53,9 +56,10 @@ const MemberTrack = ({ memberId }) => {
 
       if (data.location) {
         const { lat, lng } = data.location;
-        console.log("Google Geolocation Data:", data.location);
+        console.log("Google Geolocation Data:",  data.location);
         setCoordinates({ latitude: lat, longitude: lng });
 
+        // Update member location with the coordinates from Google API
         await updateLocationMutation.mutateAsync({ memberId, latitude: lat, longitude: lng });
       } else {
         setError("Unable to fetch location from Google API.");
@@ -67,7 +71,7 @@ const MemberTrack = ({ memberId }) => {
 
   useEffect(() => {
     fetchGeolocation();
-  }, []);
+  }, []); // Trigger geolocation fetching when the component mounts
 
   const { geoLocation } = useGeocode(coordinates.latitude, coordinates.longitude);
 
