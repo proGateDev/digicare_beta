@@ -34,7 +34,7 @@ export const useUpdateMemberLocation = () => {
   const mutation = useMutation({
     mutationFn: updateMemberLocation, // Function to update location
     onSuccess: (data) => {
-      console.log('Location updated successfully:', data);
+      // console.log('Location updated successfully:', data);
     },
     onError: (error) => {
       console.error('Error updating location:', error);

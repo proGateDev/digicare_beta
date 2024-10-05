@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
-export default function GoogleMaps() {
+export default function GoogleMaps({ latitude, longitude }) {
     const mapRef = useRef(null);
     const [marker, setMarker] = useState(null); // State to hold the marker
 
@@ -14,10 +14,10 @@ export default function GoogleMaps() {
                 version: 'quarterly',
             });
 
-            const google = await loader.load(); 
+            const google = await loader.load();
             const locationInMap = {
-                lat: 26.846067,
-                lng: 81.061365,
+                lat: latitude,
+                lng:longitude ,
             };
 
             const mapOptions = {
@@ -26,22 +26,22 @@ export default function GoogleMaps() {
                 mapId: 'NEXT_MAPS_TUTS',
             };
 
-            const map = new google.maps.Map(mapRef.current, mapOptions); 
+            const map = new google.maps.Map(mapRef.current, mapOptions);
 
             const newMarker = new google.maps.Marker({
                 position: locationInMap,
                 map: map,
-                title: "Click to move me!", 
+                title: "Click to move me!",
             });
 
-            setMarker(newMarker); 
+            setMarker(newMarker);
             google.maps.event.addListener(map, "click", (event) => {
                 const newPosition = {
                     lat: event.latLng.lat(),
                     lng: event.latLng.lng(),
                 };
-                newMarker.setPosition(newPosition); 
-                map.setCenter(newPosition); 
+                newMarker.setPosition(newPosition);
+                map.setCenter(newPosition);
             });
         };
 

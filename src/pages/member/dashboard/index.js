@@ -34,7 +34,9 @@ const Dashboard = () => {
       <div className="flex flex-row h-screen max-w-7xl mx-auto gap-2">
         <div className="md:container">
           <NewsUpdate />
-          <GoogleMaps />
+          <h1>Google Map</h1>
+          {/* <GoogleMaps /> */}
+          <h1>Custom one Map</h1>
           <MemberTrack />
           {/* <ChartOne/>
           <PiChartOne/> */}
