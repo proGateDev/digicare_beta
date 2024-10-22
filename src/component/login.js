@@ -19,7 +19,7 @@ const Login = () => {
         setLoading(true);
         setError(null);
 
-        axios.post('http://192.168.0.172:8000//user/auth/signup', {
+        axios.post('http://192.168.0.172:8000/user/auth/signup', {
             email,
             password
         })

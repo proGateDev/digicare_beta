@@ -31,6 +31,7 @@ const MemberTrack = ({ memberId }) => {
         },
         async (error) => {
           console.error("Browser Geolocation Error:", error);
+          
           await fetchFromGoogleAPI(); // Fall back to Google API on error
         },
         { enableHighAccuracy: true, timeout: 300000, maximumAge: 10 } // Request high accuracy location with extended timeout
