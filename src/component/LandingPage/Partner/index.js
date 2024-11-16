@@ -4,7 +4,7 @@ function Index() {
   return (
     <div className="flex items-center justify-center p-6" >
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl w-full">
-        <h1 className="text-3xl font-bold text-center mb-4 text-blue-600">Visit DigiCare4u's website</h1>
+        <h1 className="text-3xl font-bold text-center mb-4 text-blue-600">Visit DigiCare4u website</h1>
         <div className='flex justify-center items-center '>
         <img
               src="/images/logo.jpg"
