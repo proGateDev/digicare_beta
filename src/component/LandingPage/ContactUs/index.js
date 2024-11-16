@@ -67,7 +67,7 @@ export default function QueryForm() {
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
       <h2 className="text-2xl font-bold text-center text-blue-600 mb-4">Get in Touch with DigiCare4u</h2>
       <p className="text-center text-gray-600 mb-6 text-[#28282B]">
-        We'd love to hear from you! Fill out the form below and our team will reach out to you shortly.
+        We do love to hear from you! Fill out the form below and our team will reach out to you shortly.
       </p>
       <form onSubmit={handleSubmit} className="text-[#28282B]">
         <div className="mb-4">
