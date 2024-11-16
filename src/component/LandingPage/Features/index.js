@@ -73,7 +73,7 @@ const index = () => {
                                 <FaMapMarkerAlt className="text-blue-500 text-4xl mb-4" />
                                 <h2 className="text-xl text-white font-semibold">Real-Time Location</h2>
                             </div>
-                            <p className="mt-2 text-white text-center text-sm flex text-justify">With our Real-Time Location feature, you can track the exact position of individuals or assets at any given moment. This feature ensures that you're always updated on the current location with pinpoint accuracy. Whether it's for personal or business use, real-time tracking is vital for monitoring movement and ensuring safety. The tracking data is updated continuously, giving you the most up-to-date information to make informed decisions.</p>
+                            <p className="mt-2 text-white text-center text-sm flex text-justify">With our Real-Time Location feature, you can track the exact position of individuals or assets at any given moment. This feature ensures that you are always updated on the current location with pinpoint accuracy. Whether it is for personal or business use, real-time tracking is vital for monitoring movement and ensuring safety. The tracking data is updated continuously, giving you the most up-to-date information to make informed decisions.</p>
                         </div>
 
                         {/* Activity History Card */}
@@ -103,7 +103,7 @@ const index = () => {
                                 <h2 className="text-xl text-white font-semibold">Analytics</h2>
                             </div>
 
-                            <p className="mt-2 text-white text-center text-sm text-justify">Our Analytics feature turns raw location data into actionable insights. By analyzing patterns, trends, and behaviors, you can gain valuable knowledge to improve decision-making. This feature provides detailed reports that highlight key metrics, such as frequent locations, time spent in specific areas, and much more. Whether you're tracking assets or monitoring personnel, analytics helps you optimize performance and make informed strategic decisions.</p>
+                            <p className="mt-2 text-white text-center text-sm text-justify">Our Analytics feature turns raw location data into actionable insights. By analyzing patterns, trends, and behaviors, you can gain valuable knowledge to improve decision-making. This feature provides detailed reports that highlight key metrics, such as frequent locations, time spent in specific areas, and much more. Whether you are tracking assets or monitoring personnel, analytics helps you optimize performance and make informed strategic decisions.</p>
                         </div>
 
                         {/* Custom Alerts Card */}
@@ -113,7 +113,7 @@ const index = () => {
                                 <h2 className="text-xl text-white font-semibold">Custom Alerts</h2>
                             </div>
 
-                            <p className="mt-2 text-white text-center text-sm text-justify">Set up personalized notifications with our Custom Alerts feature. Whether you need to be notified of a specific location change or receive real-time alerts based on certain conditions, our system makes it easy to stay informed. You can customize your alerts based on time, location, and activity, giving you complete control over how and when you're notified. This feature helps you stay on top of important events without needing to constantly monitor data.</p>
+                            <p className="mt-2 text-white text-center text-sm text-justify">Set up personalized notifications with our Custom Alerts feature. Whether you need to be notified of a specific location change or receive real-time alerts based on certain conditions, our system makes it easy to stay informed. You can customize your alerts based on time, location, and activity, giving you complete control over how and when you are notified. This feature helps you stay on top of important events without needing to constantly monitor data.</p>
                         </div>
 
                         {/* Mobile Access Card */}
@@ -122,7 +122,7 @@ const index = () => {
                                 <FaMobileAlt className="text-blue-500 text-4xl mb-4" />
                                 <h2 className="text-xl text-white font-semibold text-justify">Mobile Access</h2>
                             </div>
-                            <p className="mt-2 text-white text-center text-sm text-justify">With Mobile Access, you can track and manage your assets or individuals from anywhere, at any time, directly from your smartphone. Whether you're on the go or working from home, this feature ensures that you never miss an update. The mobile interface is designed for ease of use, making it simple to access tracking data, receive alerts, and review analytics from the convenience of your mobile device.</p>
+                            <p className="mt-2 text-white text-center text-sm text-justify">With Mobile Access, you can track and manage your assets or individuals from anywhere, at any time, directly from your smartphone. Whether you are on the go or working from home, this feature ensures that you never miss an update. The mobile interface is designed for ease of use, making it simple to access tracking data, receive alerts, and review analytics from the convenience of your mobile device.</p>
                         </div>
                     </div>
                 </div>
