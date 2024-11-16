@@ -3,7 +3,7 @@ import React from 'react'
 function index() {
     return (
         <>
-            <footer class="bg-white dark:bg-gray-900 rounded" >
+            <footer class="bg-white dark:bg-gray-900 rounded text-[#28282B]" >
                 <div class="container mx-auto w-full max-w-screen-xl">
                     <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
                         <div>
@@ -25,7 +25,7 @@ function index() {
                         </div>
                         <div>
                             <h2 class="mb-6 text-sm font-semibold text-blue-500 uppercase dark:text-white">Help center</h2>
-                            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                            <ul class="text-gray-500 dark:text-gray-400 font-medium ">
                                 <li class="mb-4">
                                     <a href="#" class=" hover:underline">Feature</a>
                                 </li>
@@ -66,11 +66,11 @@ function index() {
                             </ul>
                         </div>
                     </div>
-                    <div className="relative text-center">
+                    {/* <div className="relative text-center">
                         <h1 className="text-8xl font-extrabold text-white absolute inset-0 flex justify-center items-center z-0 custom-stroke">
                             DigiCare4u
                         </h1>
-                    </div>
+                    </div> */}
                     <div class="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
                         <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a href="https://flowbite.com/">DigiCare4u</a>. All Rights Reserved.
                         </span>

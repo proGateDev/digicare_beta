@@ -33,7 +33,7 @@ const About = () => {
       {/* Content Section */}
       <div className="relative container z-10 py-6 px-4 text-center text-gray-800">
         <h1 className="text-4xl font-bold mb-4 text-blue-500">About Us</h1>
-        <p className="text-xl mb-6 mx-25 text-gray-200">
+        <p className="text-xl mb-6 mx-25 text-[#28282B] ">
         Digicare4u is a specialized tracking software dedicated to empowering individuals and organizations with precise, real-time location tracking and monitoring.
         </p>
 
@@ -41,9 +41,9 @@ const About = () => {
         <div className="flex flex-wrap -mx-3">
           {cards.map((card) => (
             <div key={card.id} className="w-full sm:w-1/2 md:w-1/3 p-3">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full">
+              <div className="bg-white  rounded-lg shadow-lg overflow-hidden flex flex-col h-full">
                 <div className="p-4 flex-1 flex flex-col">
-                  <p className="mb-4 text-gray-400 text-md font-medium flex-1 text-justify">{card.description}</p>
+                  <p className="mb-4 text-gray-400 text-md text-[#28282B] font-medium flex-1 text-justify">{card.description}</p>
                   <div href="#" className="border-t border-gray-200 pt-2 text-xs text-gray-600 hover:text-red-500 uppercase no-underline tracking-wide">
                       <h3 className="text-2xl text-blue-500 font-bold">{card.title}</h3>
                   </div>

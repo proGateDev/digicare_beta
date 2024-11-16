@@ -20,7 +20,7 @@ function Index() {
           >
             <button
               style={{
-                background: 'linear-gradient(291deg, rgba(255, 255, 255, 1) 0%, rgba(0, 105, 217, 1) 57%)',
+                background: 'rgba(0, 105, 217, 1) ',
                 color: 'white'
               }}
               className="font-bold py-2 px-6 rounded"

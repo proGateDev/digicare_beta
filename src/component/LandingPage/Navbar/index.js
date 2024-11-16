@@ -23,7 +23,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links for desktop */}
-        <div className={`hidden md:flex space-x-6`}>
+        <div className={`hidden md:flex space-x-6 text-[#28282B]`}>
           <Link href="#free-trial">
             <p className="text-gray-700 hover:text-blue-600">Free Trial</p>
           </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link href="Admin/Auth/login" className="mx-3">
             <button className="text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"               style={{
-                background: 'linear-gradient(291deg, rgba(255, 255, 255, 1) 0%, rgba(0, 105, 217, 1) 57%)',
+                background: 'rgba(0, 105, 217, 1)',
                 color: 'white'
               }}>
               Login

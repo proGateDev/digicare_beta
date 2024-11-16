@@ -7,11 +7,11 @@ const Hero = () => {
             background: 'linear-gradient(90deg, rgba(255,255,240,1) 17%, rgba(167,231,244,1) 52%, rgba(255,255,240,1) 81%);'
         }}>
 
-            <h1 className="text-3xl font-bold text-center mb-4" >
+            <h1 className="text-3xl font-bold text-center mb-4 text-[#28282B]" >
                 DigiCare4u Tracking Software
             </h1>
 
-            <p className="text-center text-lg text-gray-700 mb-6">
+            <p className="text-center text-lg text-gray-700 mb-6 text-[#28282B]">
                 The <span className="text-blue-400 text-xl font-bold"> DigiCare4u</span>  Tracking System provides real-time location tracking,
                 analytics, and insights to help <br /> you monitor and manage your resources
                 efficiently.
@@ -22,7 +22,7 @@ const Hero = () => {
                     onClick={() => router.push('/auth/login')}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     style={{
-                        background: 'linear-gradient(291deg, rgba(255, 255, 255, 1) 0%, rgba(0, 105, 217, 1) 57%)',
+                        // background: 'linear-gradient(291deg, rgba(255, 255, 255, 1) 0%, rgba(0, 105, 217, 1) 57%)',
                         color: 'white'
                     }}
                 >
@@ -30,7 +30,7 @@ const Hero = () => {
                 </button>
                 <button
                     onClick={() => console.log('clicked')}
-                    className="bg-white hover:bg-white-400 text-gray-800 font-bold py-2 px-4 rounded">
+                    className="bg-white hover:bg-white-400 text-gray-800 font-bold py-2 px-4 rounded text-[#28282B]">
                     Learn More
                 </button>
             </div>
