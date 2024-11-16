@@ -11,13 +11,14 @@ const index = () => {
                 }}
             >
                 <div className="container mx-auto px-4">
+                    <h1 className="text-3xl font-bold mt-8 text-white text-center">DigiCare4u Provides Real-Time Tracking, Reliable Care                    </h1>
                     <div
                         className="flex items-center justify-center min-h-screen w-full h-full h-120"
                         style={{
                             background: 'radial-gradient(circle, rgba(2,0,36,1) 11%, rgba(0,212,255,1) 60%, rgba(2,0,36,1) 92%);',
                         }}
                     >
-                        <h1 className="text-3xl font-bold mt-8 text-white text-center">Digicare4u</h1>
+                        {/* <h1 className="text-3xl font-bold mt-8 text-white text-center">Digicare4u</h1> */}
 
                         <div className="relative">
                             <img

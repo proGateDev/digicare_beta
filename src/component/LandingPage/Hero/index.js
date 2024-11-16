@@ -19,7 +19,7 @@ const Hero = () => {
 
             <div className="flex space-x-4">
                 <button
-                    onClick={() => router.push('/auth/login')}
+                    onClick={() => router.push('/Contact-us')}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     style={{
                         // background: 'linear-gradient(291deg, rgba(255, 255, 255, 1) 0%, rgba(0, 105, 217, 1) 57%)',
@@ -30,7 +30,7 @@ const Hero = () => {
                 </button>
                 <button
                     onClick={() => console.log('clicked')}
-                    className="bg-white hover:bg-white-400 text-gray-800 font-bold py-2 px-4 rounded text-[#28282B]">
+                    className="bg-white hover:border-red text-gray-800 font-bold py-2 px-4 rounded text-[#28282B]">
                     Learn More
                 </button>
             </div>

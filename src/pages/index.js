@@ -9,6 +9,7 @@ import Footer from '../component/LandingPage/Footer'
 import Features from '../component/LandingPage/Features'
 import Partner from '../component/LandingPage/Partner'
 import Hero from '../component/LandingPage/Hero'
+// import { ContactUs } from "../component/LandingPage/ContactUs";
 
 
 export default function Home() {
@@ -17,13 +18,15 @@ export default function Home() {
     <>
       <div className="bg-white py-4">
         <Navbar />
-        <Hero/>
+        {/* <ContactUs /> */}
+        <Hero />
         <Header />
         <Product />
-        <Features/>
+        <Features />
         <About />
         <Partner />
         <Footer />
+
       </div>
     </>
   );
