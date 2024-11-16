@@ -13,12 +13,11 @@ export function AuthProvider({ children }) {
   const router = useRouter();
 
   useEffect(() => {
-    // Simulate fetching user info (e.g., from local storage or an API)
+
     const token = sessionStorage.getItem('token');
 
 
     if (token) {
-      // Example: Decode token or validate session
       setUser({ token });
     }
     setLoading(false);
@@ -53,26 +52,11 @@ export function AuthProvider({ children }) {
     router.push(`/${userType}/dashboard`);
   };
 
-
-
-
-
-
-
   const logout = () => {
     sessionStorage.removeItem('token');
     setUser(null);
     router.push('/auth/login');
   };
-
-
-
-
-
-
-
-
-
 
   const decodedToken = async () => {
     const token = sessionStorage.getItem('token');

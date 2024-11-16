@@ -1,5 +1,4 @@
 import React from "react";
-import Partner from '../Partner'
 
 const CardList = () => {
   const reviews = [
@@ -29,7 +28,7 @@ const CardList = () => {
   return (
     <>
       <div className=" p-15">
-        <h2 className="text-center">Review</h2>
+        <h2 className="text-center text-3xl text-">Review</h2>
         <div className=" flex flex-wrap -mx-3 py-10">
           {reviews.map((card) => (
             <div key={card.id} className="w-full sm:w-1/2 md:w-1/3 p-3">
@@ -37,18 +36,12 @@ const CardList = () => {
                 <div className="p-4 flex-1 flex flex-col">
                   <h3 className="mb-4 text-2xl">{card.title}</h3>
                   <p className="mb-4 text-gray-600 text-sm flex-1">{card.description}</p>
-                  <a
-                    href="#"
-                    className="border-t border-gray-200 pt-2 text-xs text-gray-600 hover:text-red-500 uppercase no-underline tracking-wide"
-                  >
-                    Twitter
-                  </a>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <Partner />
+     
       </div>
     </>
   );

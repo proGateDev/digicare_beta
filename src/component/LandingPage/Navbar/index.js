@@ -43,8 +43,11 @@ const Navbar = () => {
 
         {/* Right Side Login Button and Mobile Menu Toggle */}
         <div className="flex items-center justify-between">
-          <Link href="/auth/login" className="mx-3">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">
+          <Link href="Admin/Auth/login" className="mx-3">
+            <button className="text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"               style={{
+                background: 'linear-gradient(291deg, rgba(255, 255, 255, 1) 0%, rgba(0, 105, 217, 1) 57%)',
+                color: 'white'
+              }}>
               Login
             </button>
           </Link>

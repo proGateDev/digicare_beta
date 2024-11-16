@@ -5,22 +5,24 @@ import Header from '../component/LandingPage/Header';
 import Product from '../component/LandingPage/Product'
 import About from '../component/LandingPage/About'
 import Review from '../component/LandingPage/Review'
-import Footer from '../component/LandingPage/Footer';
+import Footer from '../component/LandingPage/Footer'
+import Features from '../component/LandingPage/Features'
+import Partner from '../component/LandingPage/Partner'
+import Hero from '../component/LandingPage/Hero'
 
 
 export default function Home() {
-  const handleClick = () => {
-    alert('Button Clicked!');
-  };
 
   return (
     <>
-      <div className="bg-blue-100 py-4">
+      <div className="bg-white py-4">
         <Navbar />
+        <Hero/>
         <Header />
         <Product />
+        <Features/>
         <About />
-        <Review />
+        <Partner />
         <Footer />
       </div>
     </>

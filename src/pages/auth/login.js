@@ -10,7 +10,6 @@ import { useProtectedLoginRoute } from '../../hooks/useProtectedLoginRoute';
 
 const Login = () => {
     const router = useRouter();
-    // useProtectedLoginRoute('user')
     useProtectedLoginRoute()
     //=-=========================
     //=-=========================

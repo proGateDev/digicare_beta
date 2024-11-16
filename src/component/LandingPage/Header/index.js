@@ -1,51 +1,54 @@
 import React from 'react';
-import Hero from '../Hero'
 
 const CircleComponent = () => {
   return (
     <>
-    <Hero/>
-      <div className="flex justify-center items-center min-h-screen bg-gray-200" id='pricing'>
+      <div className="flex justify-center items-center min-h-screen bg-gray-200" id="pricing" style={{
+        background: 'background: radial-gradient(circle, rgba(255,255,255,1) 17%, rgba(0,200,241,1) 52%, rgba(255,255,255,1) 100%);'
+      }}>
         {/* Wrapper for circles */}
-        <div className="relative flex items-center">
+        <div className="relative flex items-center justify-center">
           {/* Left circles */}
-          <div className="absolute md:left-[-350px] sm:left-[-200px] flex flex-col items-center">
+          <div className="absolute left-[-350px] flex flex-col items-center">
             <div className="w-20 h-20 bg-white rounded-full mb-4 shadow-lg flex items-center justify-center">
-              <p className='text-center text-blue-500'>Real-Time Tracking​</p>
+              <p className="text-center text-blue-500">Real-Time Tracking​</p>
             </div>
-            <div className='flex items-center justify-between'>
+            <div className="flex items-center justify-between">
               <div className="w-20 h-20 bg-white rounded-full m-4 shadow-lg flex items-center justify-center">
-                <p className='text-center text-blue-500'>Easy-to-Use App</p>
+                <p className="text-center text-blue-500">Easy-to-Use App</p>
               </div>
               <div className="w-20 h-20 bg-white rounded-full m-4 shadow-lg flex items-center justify-center">
-                <p className='text-center text-blue-500'>Comfortable Design​</p>
+                <p className="text-center text-blue-500">Comfortable Design​</p>
               </div>
             </div>
             <div className="w-20 h-20 bg-white rounded-full m-4 shadow-lg flex items-center justify-center">
-              <p className='text-center text-blue-500'>Analytics Insights​</p>
+              <p className="text-center text-blue-500">Analytics Insights​</p>
             </div>
           </div>
 
           {/* Center circle */}
-          <div className="w-25 h-25 bg-blue-500 rounded-full shadow-lg flex items-center justify-center">
-            <h2 className='text-white font-semibold'>₹99/user</h2>
+          <div className="w-25 h-25 bg-blue-500 rounded-full shadow-lg flex items-center justify-center mx-4"               style={{
+                background: 'linear-gradient(291deg, rgba(255, 255, 255, 1) 0%, rgba(0, 105, 217, 1) 57%)',
+                color: 'white'
+              }}>
+            <h2 className="text-white font-semibold">₹99/user</h2>
           </div>
 
           {/* Right circles */}
-          <div className="absolute md:right-[-350px] sm:right-[-200px] flex flex-col items-center">
+          <div className="absolute right-[-350px] flex flex-col items-center">
             <div className="w-20 h-20 bg-white rounded-full mb-4 shadow-lg flex items-center justify-center">
-              <p className='text-center text-blue-500'>Privacy and Data Security​</p>
+              <p className="text-center text-blue-500">Privacy and Data Security​</p>
             </div>
-            <div className='flex items-center justify-between'>
+            <div className="flex items-center justify-between">
               <div className="w-20 h-20 bg-white rounded-full m-4 shadow-lg flex items-center justify-center">
-                <p className='text-center text-blue-500'>SOS Button​</p>
+                <p className="text-center text-blue-500">SOS Button​</p>
               </div>
               <div className="w-20 h-20 bg-white rounded-full m-4 shadow-lg flex items-center justify-center">
-                <p className='text-center text-blue-500'>Affordable Price</p>
+                <p className="text-center text-blue-500">Affordable Price</p>
               </div>
             </div>
             <div className="w-20 h-20 bg-white rounded-full m-4 shadow-lg flex items-center justify-center">
-              <p className='text-center text-blue-500'>Care and Trust</p>
+              <p className="text-center text-blue-500">Care and Trust</p>
             </div>
           </div>
         </div>
