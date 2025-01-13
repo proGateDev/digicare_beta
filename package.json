@@ -16,6 +16,7 @@
     "apexcharts": "^3.54.0",
     "axios": "^1.7.7",
     "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
     "next": "14.2.12",
     "next-auth": "^4.24.8",

@@ -61,3 +61,130 @@ body {
   flex: 1;
   padding: 20px;
 }
+
+
+
+.email-verification-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+.email-verification-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Header */
+.email-verification-header {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.email-verification-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.email-verification-header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+/* Content */
+.email-verification-content {
+  padding: 20px;
+  color: #333;
+}
+
+.email-verification-content h2 {
+  color: #007bff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.email-verification-info {
+  background: #e6f7ff;
+  border-left: 4px solid #007bff;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.email-verification-info ul {
+  padding-left: 20px;
+}
+
+.email-verification-actions {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.email-verification-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.email-verification-button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+.email-verification-footer {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+.qr-code {
+  margin: 10px 0;
+  width: 150px;
+  height: 150px;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  align-items: center;    /* Center the images vertically (if needed) */
+  margin-top: 10px;       /* Optional spacing above */
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  margin: 0 5px;
+}
+
+.app-links {
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  align-items: center;    /* Center the images vertically (if needed) */
+  margin-top: 10px;       /* Optional spacing above */
+}
+
+.app-links img {
+  height: 40px;
+  margin: 0 5px; /* Add spacing between images */
+}
