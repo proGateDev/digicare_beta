@@ -81,7 +81,7 @@ const EmailVerification = () => {
           <h2>Congratulations🎊🎊🎊</h2>
 
           <h2>Welcome, {userData?.memberName || "User"}</h2>
-          <h2>You're invited by {userData?.parentUserName || "DigiCare4u"}</h2>
+          <h2>You are invited by {userData?.parentUserName || "DigiCare4u"}</h2>
           <p>
             Welcome to DigiCare4u! To access all features of our app, please
             verify your email address. Verifying your email ensures the security
