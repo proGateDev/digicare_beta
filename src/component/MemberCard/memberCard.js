@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
-import { apiEndpoints } from '../../../contsants/endPoints'
-import { data } from 'autoprefixer';
+// import { apiEndpoints } from '../../../contsants/endPoints'
+// import { data } from 'autoprefixer';
 import { useRouter } from 'next/router';
 
 

@@ -149,12 +149,10 @@ export const useUserMembersLocationById = (memberId) => {
     // queryFn: (memberId)=>fetchUserMembersById(memberId),   // Function to fetch members
     queryFn: ()=>fetchUserMembersLocationById(memberId),   // Function to fetch members
   });
-// let userMembers = data
 
   return {
     isPending: isLoading || isFetching,
     error,
     data,
-    // memberDetail: userMembers?.member|| null, // Return null if no data is available
   };
 };

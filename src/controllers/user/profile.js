@@ -15,7 +15,7 @@ export const fetchUserProfile = async () => {
   });
 
   // Check if the response contains data
-  if (response.status !== 200 || !response.data) {
+  if (response.status !== 200 || !response.data) { 
     console.error('Error fetching profile data:', response.data);
     throw new Error(`Failed to fetch profile data: ${response.statusText}`);
   }
