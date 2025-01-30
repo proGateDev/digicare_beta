@@ -8,7 +8,7 @@ import { useUserProfile } from "../../../controllers/user/profile";
 import Loader from "../../../component/loader";
 // import { useAuth } from "../../../context/auth";
 
-function index() {
+function Index() {
   // const { user, logout } = useAuth();
   const [loading, setLoading] = useState(true);
   const {
@@ -52,4 +52,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
