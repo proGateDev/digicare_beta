@@ -6,13 +6,13 @@ import Teams from '../../../component/teams';
 import { useUserProfile } from '../../../controllers/user/profile';
 import { useUserMembers } from '../../../controllers/user/member';
 import { useProtectedRoute } from "../../../hooks/useProtectedRoute";
-import { useAuth } from '../../../context/auth';
+// import { useAuth } from '../../../context/auth';
 import Loader from '../../../component/loader'
 // import Tabs from '../../../component/Tabs';
 
 const Dashboard = () => {
   useProtectedRoute();
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
   const [loading, setLoading] = useState(true);
 
   const { isPending: profilePending, error: profileError, userProfile } = useUserProfile();

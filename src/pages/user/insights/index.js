@@ -6,10 +6,10 @@ import Teams from "../../../component/teams";
 import { useUserMembers } from "../../../controllers/user/member";
 import { useUserProfile } from "../../../controllers/user/profile";
 import Loader from "../../../component/loader";
-import { useAuth } from "../../../context/auth";
+// import { useAuth } from "../../../context/auth";
 
 function index() {
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
   const [loading, setLoading] = useState(true);
   const {
     isPending: profilePending,
