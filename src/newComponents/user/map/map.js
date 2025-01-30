@@ -1,6 +1,6 @@
-import React from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import MemberListCard from '../card/memberListCard';
+import React from "react";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import MemberListCard from "../card/memberListCard";
 
 const center = {
   lat: 51.505,
@@ -9,17 +9,17 @@ const center = {
 
 function Map() {
   return (
-   <>
-   <MemberListCard/>
+    <>
+      <MemberListCard />
       <GoogleMap
-        mapContainerClassName="w-full h-screen"  // Tailwind CSS for full width and height
+        mapContainerClassName="w-full h-screen" // Tailwind CSS for full width and height
         center={center}
         zoom={13}
       >
         <Marker position={center} />
       </GoogleMap>
-    </LoadScript>
-   </>
+      <LoadScript></LoadScript>
+    </>
   );
 }
 
