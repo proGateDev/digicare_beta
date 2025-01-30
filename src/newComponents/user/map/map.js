@@ -11,7 +11,6 @@ function Map() {
   return (
    <>
    <MemberListCard/>
-    <LoadScript googleMapsApiKey="AIzaSyD5duJO3YyVT3BEWMP1a6Aa_Rfq9v4B9vk">
       <GoogleMap
         mapContainerClassName="w-full h-screen"  // Tailwind CSS for full width and height
         center={center}

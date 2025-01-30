@@ -71,20 +71,20 @@ const UsersList = () => {
               <div className="flex flex-col items-center pb-4">
                 <img
                   className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                  src="/docs/images/people/profile-picture-3.jpg"
-                  alt={user.name}
+                  src={user.image || 'https://lofrev.net/wp-content/photos/2016/09/autodesk_logo_png.png'}
+                  alt={user.name || 'Comapny Name'}
                 />
                 <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                  {user.name}
+                  {user.name || 'Company name'}
                 </h5>
                 <span className="text-sm text-gray-500 dark:text-gray-400">
-                  {user.email}
+                  {user.email || 'example@gmail.com'}
                 </span>
                 <div className="flex mt-4">
                   <button className="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
                     Update
                   </button>
-                  <button className="px-4 py-2 ml-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300">
+                  <button className="px-4 py-2 ml-2 text-sm font-medium text-white bg-rose-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300">
                     Delete
                   </button>
                 </div>
