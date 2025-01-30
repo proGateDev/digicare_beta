@@ -3,7 +3,7 @@ import axios from "axios";
 // import devURL from '../../../../contsants/endPoints'
 import { useRouter } from "next/router";
 
-function memberListCard() {
+function MemberListCard() {
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [members, setMembers] = useState([]);
@@ -137,4 +137,4 @@ function memberListCard() {
   );
 }
 
-export default memberListCard;
+export default MemberListCard;
