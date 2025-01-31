@@ -1,5 +1,6 @@
 import React from "react";
-import Login from "../pages/auth/login"
+import Login from "../pages/admin/auth/login"
+// import Login from "../pages/auth/login"
 // import { useRouter } from 'next/router';
 // import Navbar from "../component/LandingPage/Navbar";
 // import Header from '../component/LandingPage/Header';
