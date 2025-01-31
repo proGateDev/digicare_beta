@@ -26,7 +26,8 @@ function Index() {
 
   return (
     <>
-      <DefaultLayout profile={userProfile.user}>
+      {/* <DefaultLayout profile={userProfile.user}> */}
+      <DefaultLayout>
         {/* <MemberCard/>
         {loading ? (
           <Loader />
