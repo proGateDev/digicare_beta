@@ -1,5 +1,5 @@
 import React from "react";
-import {Login} from "../pages/admin/auth/login"
+import AdminLogin from "../pages/admin/auth/login"
 // import Login from "../pages/auth/login"
 // import { useRouter } from 'next/router';
 // import Navbar from "../component/LandingPage/Navbar";
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-white py-4">
-        <Login/>
+        <AdminLogin/>
         {/* <Navbar />
      
         <Hero />
