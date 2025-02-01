@@ -205,7 +205,7 @@ export const memberSidebarMenus = [
           </svg>
         ),
         label: "Dashboard",
-        route: "/admin/dashboard",
+        route: "/Admin/dashboard",
       },
       {
         icon: (
@@ -236,7 +236,7 @@ export const memberSidebarMenus = [
           </svg>
         ),
         label: "Companies",
-        route: "/admin/user/list",
+        route: "/Admin/user/list",
 
         children: [
           {
@@ -253,7 +253,7 @@ export const memberSidebarMenus = [
               </svg>
             ),
             label: "Companies List",
-            route: "/admin/user/list",
+            route: "/Admin/user/list",
           },
           {
             icon: (
@@ -269,7 +269,7 @@ export const memberSidebarMenus = [
               </svg>
             ),
             label: "Add Company",
-            route: "/admin/user/add",
+            route: "/Admin/user/add",
           },
         ],
       },
@@ -313,7 +313,7 @@ export const adminSidebarMenus = [
           </svg>
         ),
         label: "Dashboard",
-        route: "/admin/dashboard",
+        route: "/Admin/dashboard",
       },
       {
         icon: (
@@ -344,7 +344,7 @@ export const adminSidebarMenus = [
           </svg>
         ),
         label: "Companies",
-        route: "/admin/user/list",
+        route: "/Admin/user/list",
 
         children: [
           {
@@ -361,7 +361,7 @@ export const adminSidebarMenus = [
               </svg>
             ),
             label: "Companies List",
-            route: "/admin/user/list",
+            route: "/Admin/user/list",
           },
           {
             icon: (
@@ -377,7 +377,7 @@ export const adminSidebarMenus = [
               </svg>
             ),
             label: "Add Company",
-            route: "/admin/user/add",
+            route: "/Admin/user/add",
           },
         ],
       },
