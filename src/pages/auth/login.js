@@ -43,14 +43,14 @@ const Login = () => {
         <div className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md">
             <div className="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">
                 <div className="my-3 text-4xl font-bold tracking-wider text-center">
-                    <a href="#">Login</a>
+                    <a href="#">User Login</a>
                 </div>
                 <p className="mt-6 font-normal text-center text-gray-300 md:mt-0">
                     Focus on functionaries for your digital products, while leaving the UI design on us!
                 </p>
-                <p className="mt-6 text-sm text-center text-gray-300">
+                {/* <p className="mt-6 text-sm text-center text-gray-300">
                     Read our <a href="#" className="underline">terms</a> and <a href="#" className="underline">conditions</a>
-                </p>
+                </p> */}
             </div>
             <div className="p-5 bg-white md:flex-1">
                 <h3 className="my-4 text-2xl font-semibold text-gray-700">
@@ -123,7 +123,7 @@ const Login = () => {
                 </form>
 
                 {/* Toggle between login and sign-up */}
-                <div className="flex justify-center mt-4">
+                {/* <div className="flex justify-center mt-4">
                     {isLogin ? (
                         <p>
                             Dont have an account?{' '}
@@ -135,7 +135,7 @@ const Login = () => {
                             <button type="button" onClick={() => setIsLogin(true)} className="text-blue-600">Login</button>
                         </p>
                     )}
-                </div>
+                </div> */}
             </div>
         </div>
     </div>

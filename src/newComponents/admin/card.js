@@ -4,18 +4,13 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Users } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 export default function Card() {
 
   const [users, setUsers] = useState([]);
   const router = useRouter();
-  
-
-  const handleCardClick = () => {
-    router.push('/admin/user/list'); // Redirect to the list
-  };
-
 
   const fetchUsers = async () => {
     try {
@@ -73,19 +68,19 @@ export default function Card() {
   }, []);  // fetch users on component mount
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900"   onClick={handleCardClick}>
-      <div className="flex flex-col items-center bg-white shadow-md rounded-lg p-6 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    // 
+      <Link href='/admin/user/list'>
+      <div className="flex flex-col items-center w-50 h-40 bg-white shadow-md rounded-lg p-6 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         {/* Icon */}
         <Users className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-2" />
 
-        {/* Title */}
         <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Total Compnies</h3>
 
-        {/* Number (showing count of users fetched) */}
         <p className="text-xl font-bold text-gray-900 dark:text-gray-300">
           {users.length > 0 ? users.length : 'Loading...'}
         </p>
       </div>
-    </div>
+      </Link>
+    // 
   );
 }

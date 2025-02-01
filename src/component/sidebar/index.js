@@ -7,21 +7,21 @@ import Image from "next/image";
 import SidebarItem from "./SidebarItem";
 import ClickOutside from "../ClickOutside";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import { userSidebarMenus, memberSidebarMenus, adminSidebarMenus} from "../../../content/sidebar";
+import { userSidebarMenus, adminSidebarMenus} from "../../../content/sidebar";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen, isMember }) => {
-  console.log('adminSidebarMenus',adminSidebarMenus);
   
   const pathname = usePathname();
   const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
-  // const sideBarMenus = isMember ? memberSidebarMenus : ;
+  // const sideBarMenus = isMember ? userSidebarMenus : adminSidebarMenus;
   let sideBarMenus;
   if (isMember) {
-    sideBarMenus = memberSidebarMenus;
-  } else if (pageName === "admin") {
+    sideBarMenus = userSidebarMenus;
+    // sideBarMenus = adminSidebarMenus;
+
+  }  else {
     sideBarMenus = adminSidebarMenus;
-  } else {
-    sideBarMenus = memberSidebarMenus;
+    // sideBarMenus = userSidebarMenus;
   }
   
 

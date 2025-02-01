@@ -2,25 +2,33 @@ import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import MemberListCard from "../card/memberListCard";
 
-const center = {
-  lat: 51.505,
-  lng: -0.09,
+const MapOne = () => {
+  const mapContainerStyle = {
+    width: "100%",
+    height: "480px",
+    // borderRadius: "10px",
+  };
+
+  const center = {
+    lat: 26.8467, // Default location (Lucknow, India)
+    lng: 80.9462,
+  };
+
+  return (
+    <div className="w-full">
+      <MemberListCard />
+      <LoadScript googleMapsApiKey="AIzaSyDs7POzbGW-p-9-SLvVxWEug62hPwUR2go">
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          center={center}
+          zoom={12}
+        >
+          {/* Marker for the center location */}
+          <Marker position={center} />
+        </GoogleMap>
+      </LoadScript>
+    </div>
+  );
 };
 
-function Map() {
-  return (
-    <>
-      <MemberListCard />
-      <GoogleMap
-        mapContainerClassName="w-full h-screen" // Tailwind CSS for full width and height
-        center={center}
-        zoom={13}
-      >
-        <Marker position={center} />
-      </GoogleMap>
-      <LoadScript></LoadScript>
-    </>
-  );
-}
-
-export default Map;
+export default MapOne;

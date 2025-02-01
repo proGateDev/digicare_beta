@@ -121,7 +121,7 @@ const Login = () => {
                     </form>
 
                     {/* Toggle between login and sign-up */}
-                    <div className="toggle-auth">
+                    {/* <div className="toggle-auth">
                         {isLogin ? (
                             <p>
                                 Do nott have an account?{' '}
@@ -137,10 +137,10 @@ const Login = () => {
                                 </button>
                             </p>
                         )}
-                    </div>
+                    </div> */}
 
                     {/* Google Sign-in */}
-                    <SignIn />
+                    {/* <SignIn /> */}
                 </div>
             </div>
         </>

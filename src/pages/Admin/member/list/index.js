@@ -1,65 +1,68 @@
+import DefaultLayout from '../../../../component/Layouts/DefaultLayout'
 import React, { useEffect, useState } from "react";
-import DefaultLayout from "../../../../component/Layouts/DefaultLayout";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { devURL } from "../../../../../contsants/endPoints";
 import Link from "next/link";
 
-const UsersList = () => {
-  const [users, setUsers] = useState([]);
+function memberList() {
 
-  const fetchUsers = async () => {
-    try {
-      console.log("Fetching users=====");
+    const [users, setUsers] = useState([]);
 
-      const token = sessionStorage.getItem("token");
-      console.log("token----:", token);
-
-      if (!token) {
-        console.error("Error: Authentication token is missing.");
-        Swal.fire(
-          "Error",
-          "Authentication token missing. Please log in again.",
-          "error"
-        );
-        return;
+    const fetchUsers = async () => {
+      try {
+        console.log("Fetching users=====");
+  
+        const token = sessionStorage.getItem("token");
+        console.log("token----:", token);
+  
+        if (!token) {
+          console.error("Error: Authentication token is missing.");
+          Swal.fire(
+            "Error",
+            "Authentication token missing. Please log in again.",
+            "error"
+          );
+          return;
+        }
+  
+        const response = await axios.get(`${devURL}/admin/user/list`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+  
+        console.log("API Response=======:", response);
+  
+        if (!response || !response.data) {
+          throw new Error("Empty response from server");
+        }
+  
+        console.log("Response====", response.data);
+        console.log("Users=========", response.data.data);
+  
+        if (response.data.data) {
+          setUsers(response.data.data);
+          console.log("Users state updated successfully.");
+        } else {
+          console.warn("Warning: No user data found in response.");
+        }
+  
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        console.log("Error fetching users:", error);
+        Swal.fire( "Error", error.response?.data?.message || "Failed to fetch users. Please try again.");
       }
+    };
+  
+    useEffect(() => {
+      fetchUsers();
+    }, []);
 
-      const response = await axios.get(`${devURL}/admin/user/list`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
-
-      console.log("API Response=======:", response);
-
-      if (!response || !response.data) {
-        throw new Error("Empty response from server");
-      }
-
-      console.log("Response====", response.data);
-      console.log("Users=========", response.data.data);
-
-      if (response.data.data) {
-        setUsers(response.data.data);
-        console.log("Users state updated successfully.");
-      } else {
-        console.warn("Warning: No user data found in response.");
-      }
-
-    } catch (error) {
-      console.error("Error fetching users:", error);
-      console.log("Error fetching users:", error);
-      Swal.fire( "Error", error.response?.data?.message || "Failed to fetch users. Please try again.");
-    }
-  };
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   return (
+    <>
     <DefaultLayout>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {users.length > 0 ? (
@@ -68,7 +71,7 @@ const UsersList = () => {
               key={user._id}
               className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-4"
             >
-              <Link href='/admin/member/list'>
+              <Link href='/admin/member/id'>
               <div className="flex flex-col items-center pb-4">
                 <img
                   className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -98,7 +101,8 @@ const UsersList = () => {
         )}
       </div>
     </DefaultLayout>
-  );
-};
+    </>
+  )
+}
 
-export default UsersList;
+export default memberList

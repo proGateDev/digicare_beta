@@ -13,7 +13,7 @@ export default function Home() {
         <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg mb-3 hover:bg-blue-600" onClick={()=>router.push('/auth/login')}>
           Login as User
         </button>
-        <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600" onClick={()=>router.push('/Admin/Auth/login')}>
+        <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600" onClick={()=>router.push('/admin/auth/login')}>
           Login as Admin
         </button>
       </div>

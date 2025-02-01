@@ -1,77 +1,134 @@
-import React, { useEffect, useState } from 'react';
-import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
-// import { apiEndpoints } from '../../../contsants/endPoints'
-// import { data } from 'autoprefixer';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { FaCaretRight } from "react-icons/fa";
 
-
-function MemberCard(props) {
-  const [isOpen, setIsOpen] = useState(false);
+function MemberTable({ members }) {
   const router = useRouter();
+  const [openRows, setOpenRows] = useState({});
 
-
-  console.log('====== member=========')
-  console.log(props.members)
-  console.log('===============')
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
+  const toggleRow = (memberId) => {
+    setOpenRows((prev) => ({
+      ...prev,
+      [memberId]: !prev[memberId],
+    }));
   };
 
+  console.log("members====", members);
 
   return (
-    <div className="flex flex-wrap">
-      {props?.members?.map((member) => (
-        <div key={member.trackingId} onClick={()=>router.push(`/user/members/details?memberId=${member._id}`)} className="w-full mx-auto bg-white rounded-lg overflow-hidden shadow-lg m-4">
-          <div className="p-4 flex items-center justify-between">
-            <div className='flex items-center'>
-              <img
-                className="h-16 w-16 rounded-full border-4 border-white"
-                src={member.profilePicture || 'https://randomuser.me/api/portraits/men/32.jpg'} // Fallback image
-                alt={member.name}
-              />
-              <div className="ml-4">
-                <h3 className="font-bold text-xl">{member.name}</h3>
-                <p className="text-gray-600">  {member.email}</p>
-                <p className="text-gray-600">  {member.mobile}</p>
-                <p className="text-gray-600 font-bold">  {member.userType}</p>
-                <p className={`text-sm font-semibold ${member.locationStatus ? 'text-green-500' : 'text-red-500'}`}> {member.locationStatus ? 'Online' : 'Offline'} </p>
-                {/* <p className="text-gray-600">{member.location?.coordinates?.}</p> */}
-              </div>
-            </div>
-            <div className={`p-2 rounded-md ${member.locationStatus === 'active' ? 'text-green-500' : 'text-red-500'}`}>
-              <button className="p-3 text-white font-bold bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 focus:ring-4 focus:ring-green-300 rounded-lg shadow-lg transform transition-transform hover:scale-105">
-                Location: Lucknow
-              </button>
-            </div>
-          </div>
-
-          {/* Accordion for Tracking Details */}
-          <div className="border-t border-gray-200 mt-4 px-4 py-2">
-            <h4
-              className="flex justify-between items-center font-semibold cursor-pointer"
-              onClick={toggleAccordion} // Toggle accordion on click
-            >
-              <span>Tracking Details</span>
-              {isOpen ? (
-                <FaAngleUp className="text-black-500" /> // Show up arrow when open
-              ) : (
-                <FaAngleDown className="text-black-500" /> // Show down arrow when closed
-              )}
-            </h4>
-            {isOpen && ( // Conditional rendering for accordion content
-              <ul className="text-gray-700 mt-2">
-
-                <li>Tracking ID: {member.trackingId}</li>
-                <li>Last Seen: {member.lastSeen}</li>
-                <li>Status: {member.status}</li>
-              </ul>
-            )}
-          </div>
-        </div>
-      ))}
+    <div className="overflow-x-auto mt-10">
+      <table className="min-w-full bg-white ">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="py-2 px-4 border-b">Profile</th>
+            <th className="py-2 px-4 border-b">Name</th>
+            <th className="py-2 px-4 border-b">Email</th>
+            <th className="py-2 px-4 border-b">Mobile</th>
+            <th className="py-2 px-4 border-b">User Type</th>
+            <th className="py-2 px-4 border-b">Status</th>
+            <th className="py-2 px-4 border-b">Location</th>
+            {/* <th className="py-2 px-4 border-b">Tracking Details</th> */}
+          </tr>
+        </thead>
+        <tbody>
+          {members.map((member) => (
+            <React.Fragment key={member.trackingId}>
+              {/* Main Row */}
+              <tr
+                className="cursor-pointer hover:bg-gray-50"
+                onClick={() =>
+                  router.push(`/user/members/details?memberId=${member._id}`)
+                }
+              >
+                <td className="py-2 px-4 border-b">
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={
+                      member.profilePicture ||
+                      "https://randomuser.me/api/portraits/men/32.jpg"
+                    }
+                    alt={member.name}
+                  />
+                </td>
+                <td className="py-2 px-4 border-b font-bold">
+                  {member.name || "null"}
+                </td>
+                <td className="py-2 px-4 border-b">{member.email || "null"}</td>
+                <td className="py-2 px-4 border-b">
+                  {member.mobile || "null"}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  {member.userType || "null"}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  <span
+                    className={`text-sm font-semibold flex items-center ${
+                      member.locationStatus ? "text-red-500" : "text-green-500"
+                    }`}
+                  >
+                    {/* {member.locationStatus ? "active" : "inactive"} */}
+                    {member.locationStatus ? "inactive" : "active"}
+                  </span>
+                </td>
+                <td className="py-2 px-4 border-b">
+                  <button
+                    className="px-3 py-1 text-black font-bold bg-gradient-to-r "
+                    onClick={(e) => {
+                      // Prevent row click navigation when clicking on this button
+                      e.stopPropagation();
+                      // You can also add functionality here if needed
+                    }}
+                  >
+                    {members?.lastLocation || "null"}
+                  </button>
+                </td>
+                {/* <td className="py-2 px-4 border-b">
+                  <button
+                    className="flex items-center focus:outline-none"
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent triggering row navigation
+                      toggleRow(member._id);
+                    }}
+                  >
+                    {openRows[member._id] ? (
+                      <>
+                        <span className="mr-1">Hide</span>
+                        <FaAngleUp />
+                      </>
+                    ) : (
+                      <>
+                        <span className="mr-1">Show</span>
+                        <FaAngleDown />
+                      </>
+                    )}
+                  </button>
+                </td> */}
+              </tr>
+              {/* Expanded Tracking Details Row */}
+              {/* {openRows[member._id] && (
+                <tr className="bg-gray-50">
+                  <td className="py-2 px-4 border-b" colSpan="8">
+                    <ul className="list-disc list-inside text-gray-700">
+                      <li>
+                        <strong>Tracking ID:</strong> {member.trackingId}
+                      </li>
+                      <li>
+                        <strong>Last Seen:</strong> {member.lastSeen}
+                      </li>
+                      <li>
+                        <strong>Status:</strong> {member.status}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              )} */}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
 
-export default MemberCard;
+export default MemberTable;

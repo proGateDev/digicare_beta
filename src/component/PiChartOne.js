@@ -99,7 +99,7 @@ const chartConfig = {
   },
 };
  
-export default function Example() {
+export default function PieChartOne() {
   return (
     <Card>
       <CardHeader

@@ -1,12 +1,12 @@
 import DefaultLayout from "../../../component/Layouts/DefaultLayout";
 import React from "react";
-import Map from "../../../newComponents/user/map/map";
+import MapOne from "../../../newComponents/user/map/map";
 
 function index() {
   return (
     <>
       <DefaultLayout>
-        <Map />
+        <MapOne />
       </DefaultLayout>
     </>
   );
