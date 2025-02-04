@@ -1,7 +1,7 @@
-import DefaultLayout from '../../../component/Layouts/DefaultLayout'
+import DefaultLayout from '../../component/Layouts/DefaultLayout'
 import React from 'react'
-import Card from '../../../newComponents/admin/card'
-import Card2 from '../../../newComponents/admin/card2'
+import Card from '../../newComponents/admin/card'
+import Card2 from '../../newComponents/admin/card2'
 
 
 

@@ -1,8 +1,8 @@
-import DefaultLayout from '../../../../component/Layouts/DefaultLayout'
+import DefaultLayout from '../../../component/Layouts/DefaultLayout'
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { devURL } from "../../../../../contsants/endPoints";
+import { devURL } from "../../../../contsants/endPoints";
 import Link from "next/link";
 
 function memberList() {

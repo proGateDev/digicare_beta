@@ -205,7 +205,7 @@ export const adminSidebarMenus = [
           </svg>
         ),
         label: "Dashboard",
-        route: "/Admin/dashboard",
+        route: "/dashboard",
       },
       {
         icon: (
@@ -236,7 +236,7 @@ export const adminSidebarMenus = [
           </svg>
         ),
         label: "Companies",
-        route: "/Admin/user/list",
+        route: "/user/list",
 
         children: [
           {
@@ -253,7 +253,7 @@ export const adminSidebarMenus = [
               </svg>
             ),
             label: "Companies List",
-            route: "/admin/user/list",
+            route: "/user/list",
           },
           {
             icon: (
@@ -269,7 +269,7 @@ export const adminSidebarMenus = [
               </svg>
             ),
             label: "Add Company",
-            route: "/Admin/user/add",
+            route: "/user/add",
           },
         ],
       },

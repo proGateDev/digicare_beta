@@ -1,9 +1,9 @@
-import DefaultLayout from "../../../../component/Layouts/DefaultLayout";
+import DefaultLayout from "../../../component/Layouts/DefaultLayout";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { devURL } from "../../../../../contsants/endPoints";
+import { devURL } from "../../../../contsants/endPoints";
 
 function AddUsers() {
   const router = useRouter();
