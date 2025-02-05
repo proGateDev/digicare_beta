@@ -69,8 +69,8 @@ export default function Card() {
 
   return (
     // 
-      <Link href='/admin/user/list'>
-      <div className="flex flex-col items-center w-50 h-40 bg-white shadow-md rounded-lg p-6 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+      <Link href='/user/list'>
+      <div className="flex flex-col items-center w-60 h-40 bg-white shadow-md rounded-lg p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         {/* Icon */}
         <Users className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-2" />
 

@@ -1,5 +1,6 @@
 import { Router, useRouter } from "next/router";
 import React from "react";
+import Login from '../pages/auth/login'
 
 
 export default function Home() {
@@ -7,14 +8,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-        <h1 className="text-2xl font-bold mb-6">DigiCare4u Login</h1>
-        <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600" onClick={()=>router.push('/auth/login')}>
-          Login as Admin
-        </button>
-      </div>
-    </div>
+    <Login/>
     </>
   );
 }
