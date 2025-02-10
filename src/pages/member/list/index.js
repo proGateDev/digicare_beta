@@ -13,30 +13,45 @@ const MemberList = () => {
 
   const fetchMembers = async () => {
     try {
+      console.log("Fetching members started...");
+  
+      // Get token from session storage
       const token = sessionStorage.getItem("token");
+      console.log("Token retrieved:", token);
+  
       if (!token) {
+        console.warn("Authentication token missing!");
         Swal.fire("Error", "Authentication token missing. Please log in again.", "error");
         return;
       }
-
-      console.log('token==',token)
-
-      const response = await axios.get(`${devURL}/user/members/list`, {
+  
+      const response = await axios.get(`${devURL}/admin/user/member/list`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });
-
-      if (response.data.members) {
-        setMembers(response?.data?.members);
+  
+      console.log("API response received:", response);
+  
+      if (response?.data?.members) {
+        console.log("Members data:", response.data.members);
+        setMembers(response.data.members);
+      } else {
+        console.log("No members found in response:=====", response.data);
       }
-      console.log('response==',response?.data)
     } catch (error) {
-      console.log(error)
-      Swal.fire("Error", error.response?.data?.message || "Failed to fetch members. Please try again.", "error");
+      console.error("Fetch Members Error:", error);
+      console.log("Error response object:====", error);
+  
+      Swal.fire(
+        "Error",
+        error.response?.data?.message || "Failed to fetch members. Please try again.",
+        "error"
+      );
     }
   };
+  
 
   useEffect(() => {
     fetchMembers();

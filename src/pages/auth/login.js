@@ -47,18 +47,18 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex justify-center">
-      <div className="flex w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden mt-10">
+    <div className="bg-gray-100 flex justify-center ">
+      <div className="flex w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden mt-40">
         <div className="w-1/2 hidden md:block">
           <img
             src="/images/logo.jpg"
             alt="Admin Panel Illustration"
-            className="h-full object-cover h-50 mt-20 ml-40"
+            className=" object-cover h-50 mt-20 ml-40"
           />
-           <h5 className="text-3xl font-bold text-blue-800 mb-6 text-center ml-10">Admin Login</h5>
+           {/* <h5 className="text-3xl font-bold text-blue-800 mb-6 text-center ml-10">Admin Login</h5> */}
         </div>
         <div className="w-full md:w-1/2 p-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Admin Login</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">Admin Login</h2>
           <form onSubmit={handleLogin}>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
